@@ -1,0 +1,112 @@
+@import "compass";
+@import "animation";
+
+$THEME_COLOR: #2187e7;
+$THEME_GRADIENT_COLOR: #a0eaff;
+$PULSE_COLOR: #24b9c6;
+
+body {
+	background: #121212;
+}
+
+h1 {
+	color: #fff;
+}
+
+
+/* preloader
+ ----------------------------------------*/
+.preloader {
+	margin: 40px auto;
+	width: 640px;
+
+	li {
+		float: left;
+		position: relative;
+	}
+}
+
+/*---------- point and pulse ----------*/
+.point {
+	height: 20px;
+	position: relative;
+	width: 20px;
+
+	.inner-point {
+		border-radius: 50%;
+		display: block;
+		height: 100%;
+		width: 100%;
+		@include background-image(linear-gradient(90deg, $THEME_COLOR, $THEME_GRADIENT_COLOR));
+	}
+
+	.pulse {
+		border: 2px solid $PULSE_COLOR;
+		border-radius: 50%;
+		box-shadow: 0 0 10px 5px $PULSE_COLOR;
+		display: block;
+		height: 100%;
+		left: -2px;
+		position: absolute;
+		top: -2px;
+		width: 100%;
+	}
+
+	.inner-point, .pulse {
+		@include scale(0);
+	}
+}
+#pointStart {
+	.inner-point {
+		@include setAnimation(point, .1s, linear, 0s, 1, normal, forwards);
+	}
+	.pulse {
+		@include setAnimation(pulse, 1s, ease-out);
+	}
+}
+#pointEnd {
+	.inner-point {
+		@include setAnimation(point, .1s, linear, 3.05s, 1, normal, forwards);
+	}
+	.pulse {
+		@include setAnimation(pulse, 1s, ease-out, 3.05s, infinite, normal, forwards);
+	}
+}
+
+/*---------- line ----------*/
+.line {
+	width: 600px;
+
+	.inner-line {
+		background: $THEME_COLOR;
+		box-shadow: 0 0 10px 5px rgba(0, 198, 255, 0.5);
+		display: block;
+		height: 1px;
+		margin: 10px 0;
+		width: 0;
+		@include setAnimation(move, 3s, linear, 0s, 1, normal, forwards);
+	}
+}
+
+
+/* animation
+ ----------------------------------------*/
+/*---------- point ----------*/
+@include keyframes(point) {
+	0%   {@include scale(0);}
+	100% {@include scale(1);}
+}
+
+/*---------- pulse ----------*/
+@include keyframes(pulse) {
+	0%   {@include scale(0);    opacity: 0;}
+	10%  {@include scale(1);    opacity: .5;}
+	50%  {@include scale(1.75); opacity: 0;}
+	100% {@include scale(0);    opacity: 0;}
+}
+
+/*---------- line moves ----------*/
+@include keyframes(move) {
+	0%   {width: 0;}
+	100% {width: 100%; box-shadow: 0 0 10 5px rgba(0,198,255,.5);}
+}
