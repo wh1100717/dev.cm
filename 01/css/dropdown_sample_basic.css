@@ -1,0 +1,87 @@
+
+/*	=00 Basic setting
+-----------------------------------------------------*/
+/* =00-1 Clearfix --------------------------*/
+.clearfix:after{
+	content:".";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+.clearfix{display:inline-block;}
+* html .clearfix{height:1%;}
+.clearfix{display:block;}
+
+
+/*	=01 base nav style
+-----------------------------------------------------*/
+nav {
+	display: block;
+	margin: 0 auto 20px;
+	border: 1px solid #222;
+	position: relative;
+	background: #6a6a6a;
+	font-size: 16px;
+}
+
+nav ul li {
+	position: relative;
+	float: left;
+}
+
+
+	nav ul li a {
+		display: block;
+		padding: 10px 20px;
+		border-left: 1px solid #999;
+		border-right: 1px solid #222;
+		color: #eee;
+		text-decoration: none;
+	}
+
+		nav ul li a:focus {
+			outline: none;
+			text-decoration: underline;
+		}
+
+	nav ul li:first-child a {
+		border-left: none;
+	}
+
+	nav ul li:last-child a {
+		border-right: none;
+	}
+
+	nav ul li a span {
+		display: block;
+		float: right;
+		margin-left: 5px;
+	}
+	
+	nav ul li:hover ul {
+		display:block;
+	}
+	
+nav#topNav ul ul {
+	display:none;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	background: #6a6a6a;
+}
+
+	nav ul ul li {
+		float: none;
+	}
+
+	nav ul ul a {
+		padding: 5px 10px;
+		border-left: none;
+		border-right: none;
+		font-size: 14px;
+	}
+
+		nav ul ul a:hover {
+			background: #555;
+		}
