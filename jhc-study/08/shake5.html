@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Shake #5 | jQuery plugin samples</title>
+<link rel="stylesheet" href="css/shake.css" />
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script src="js/jquery.shake5.js"></script>
+<script>
+	$(function() {
+
+		$('div').shake({
+			speed: 'fast'
+		}, function() {
+			alert('Done!');
+		});
+
+	});
+</script>
+</head>
+<body>
+	<h1>Shake #5 | jQuery plugin samples</h1>
+	<p>コールバック関数</p>
+
+	<div id="square1" data-shakes="4">
+		<h2>#square1</h2>
+		<span>shake x 4</span>
+	</div>
+	<div id="square2" data-shakes="10">
+		<h2>#square2</h2>
+		<span>shake x 10</span>
+	</div>
+</body>
+</html>
