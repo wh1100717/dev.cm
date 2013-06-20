@@ -1,0 +1,45 @@
+@import "compass";
+
+.taginput {
+	overflow: auto;
+	padding: 2px 4px;
+	li {
+		float: left;
+	}
+	.taginput-tag {
+		margin: 2px 4px 2px 0;
+		padding: 2px 32px 2px 8px;
+		position: relative;
+		.taginput-close {
+			background-color: adjust-lightness(#333, 20);
+			border-radius: 50%;
+			color: #fdfdfd;
+			font-size: 12px;
+			height: 16px;
+			right: 8px;
+			margin-top: -8px;
+			position: absolute;
+			text-align: center;
+			top: 50%;
+			width: 16px;
+			@include transition(.1s);
+			&:hover {
+				background-color: #333;
+			}
+		}
+	}
+	.taginput-label {
+		color: #01b0f0;
+		font-size: 86%;
+		position: relative;
+		top: -2px;
+	}
+	.taginput-input {
+		input[type="text"] {
+			border: none;
+			font-size: 14px;
+			outline: none;
+			padding: 5px;
+		}
+	}
+}
