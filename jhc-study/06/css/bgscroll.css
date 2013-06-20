@@ -1,0 +1,50 @@
+body {
+  height: 3300px;
+}
+
+h1 {
+  font-size: 100%;
+}
+
+.indicator {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+}
+
+.indicator {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+div {
+  height: 1050px;
+}
+div p {
+  color: #fff;
+  margin: 0;
+  padding: 8px;
+}
+
+#area1 {
+  background: url(../images/bg-parallaxsample01.jpg) repeat-x;
+}
+
+#area2 {
+  background: url(../images/bg-parallaxsample02.jpg) repeat-x;
+}
+
+#area3 {
+  background: url(../images/bg-parallaxsample03.jpg) repeat-x;
+}
+
+#area4 {
+  background: url(../images/bg-parallaxsample04.jpg) repeat-x;
+}
+
+#ashColorArea {
+  background: #666;
+}
+
+#redColorArea {
+  background: #900;
+}

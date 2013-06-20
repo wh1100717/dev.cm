@@ -1,0 +1,20 @@
+@import "compass";
+@import "common";
+
+.indicator {
+	background: rgba(255,255,255,.8);
+}
+div {
+	height: 1050px;
+	p {
+		color: #fff;
+		margin: 0;
+		padding: 8px;
+	}
+}
+#area1 {background: url(../images/bg-parallaxsample01.jpg) repeat-x; }
+#area2 {background: url(../images/bg-parallaxsample02.jpg) repeat-x; }
+#area3 {background: url(../images/bg-parallaxsample03.jpg) repeat-x; }
+#area4 {background: url(../images/bg-parallaxsample04.jpg) repeat-x; }
+#ashColorArea { background: #666; }
+#redColorArea { background: #900; }
