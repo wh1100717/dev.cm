@@ -168,10 +168,13 @@ pip-log.txt
 ############
 
 # Project
-.sublime-project
+*.sublime-project
 
 # Workspace
-.sublime-workspace
+*.sublime-workspace
 
 # Compass compile config
 config.rb
+
+# sass-cache dir
+.sass-cache/
