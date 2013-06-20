@@ -1,0 +1,81 @@
+@import "compass";
+.cube {
+	left: 50%;
+	margin-left: -100px;
+	padding: 0;
+	position: fixed;
+	top: 150px;
+	.panel {
+		background: #888;
+		border-radius: 30px;
+		color: #fdfdfd;
+		font-size: 300%;
+		height: 90px;
+		margin-bottom: 10px;
+		padding: 10px;
+		text-align: center;
+		vertical-align: middle;
+		width: 90px;
+		@include transition(1s);
+	}
+}
+
+.cube.transformed {
+	.panel {
+		height: 180px;
+		font-size: 600%;
+		position: absolute;
+		width: 180px;
+		&.top,
+		&.bottom {
+			background: rgba(255, 83, 31, 0.41);
+			z-index: 60;
+			-webkit-transform: rotate(60deg) skew(0deg, -30deg) scale(1, 1.16);
+			   -moz-transform: rotate(60deg) skew(0deg, -30deg) scale(1, 1.16);
+			    -ms-transform: rotate(60deg) skew(0deg, -30deg) scale(1, 1.16);
+			     -o-transform: rotate(60deg) skew(0deg, -30deg) scale(1, 1.16);
+			        transform: rotate(60deg) skew(0deg, -30deg) scale(1, 1.16);
+		}
+		&.bottom {
+			background: rgba(38, 38, 38, 0.39);
+			top: 200px;
+			z-index: 10;
+		}
+		&.left1,
+		&.left2 {
+			background: rgba(48, 168, 255, 0.39);
+			left: -101px;
+			top: 158px;
+			z-index: 50;
+			-webkit-transform: skew(0, 30deg);
+			   -moz-transform: skew(0, 30deg);
+			    -ms-transform: skew(0, 30deg);
+			     -o-transform: skew(0, 30deg);
+			        transform: skew(0, 30deg);
+		}
+		&.left2 {
+			background: rgba(255, 53, 136, 0.4);
+			z-index: 20;
+			left: 100px;
+			top: 42px;
+		}
+		&.right1,
+		&.right2 {
+			background: rgba(174, 238, 0, 0.4);
+			left: 100px;
+			top: 158px;
+			z-index: 40;
+			-webkit-transform: skew(0, -30deg);
+			   -moz-transform: skew(0, -30deg);
+			    -ms-transform: skew(0, -30deg);
+			     -o-transform: skew(0, -30deg);
+			        transform: skew(0, -30deg);
+		}
+		&.right2 {
+			left: -100px;
+			top: 41px;
+			z-index: 30;
+		}
+	}
+
+}
