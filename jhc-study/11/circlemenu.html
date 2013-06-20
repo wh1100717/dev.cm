@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Path - Circle menu sample</title>
+<link rel="stylesheet" href="../common/css/common.css">
+<link rel="stylesheet" href="css/circlemenu.css" />
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script src="js/jquery.circlemenu.js"></script>
+<script>
+	$(function() {
+		$('.circlemenu-container').circlemenu({
+			startAngle: 30,
+			angleDifference: 300,
+			radius: 200,
+			delay: 40
+		})
+			.find('.menu-option')
+				.find('a').click(function(e) {
+					e.preventDefault();
+					alert($(this).text());
+				});
+	});
+</script>
+</head>
+<body>
+	<h1>Path - Circle menu</h1>
+	<hr />
+	<div class="circlemenu-container">
+		<a href="#" class="menu-button" title="Toggle"><span></span></a>
+		<ul class="menu-option">
+			<li><a href="#" title="item1"><span class="icon camera">Item1</span></a></li>
+			<li><a href="#" title="item2"><span class="icon home">Item2</span></a></li>
+			<li><a href="#" title="item3"><span class="icon search">Item3</span></a></li>
+			<li><a href="#" title="item4"><span class="icon music">Item4</span></a></li>
+			<li><a href="#" title="item5"><span class="icon copy">Item5</span></a></li>
+			<li><a href="#" title="item6"><span class="icon user">Item6</span></a></li>
+		</ul>
+	</div>
+
+</body>
+</html>
