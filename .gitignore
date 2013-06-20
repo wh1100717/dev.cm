@@ -176,5 +176,5 @@ pip-log.txt
 # Compass compile config
 config.rb
 
-# sass-cache dir
+# sass cache
 .sass-cache/
