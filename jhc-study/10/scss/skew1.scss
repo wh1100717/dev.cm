@@ -1,0 +1,40 @@
+@import "compass";
+$C1: #ff531f;
+$C2: #262626;
+$C3: #30a8ff;
+$C4: #ff3588;
+$C5: #aeee00;
+
+$SIZE: 150px;
+body {
+	margin: 0;
+}
+.cube-container{
+	background: #d6d6d6;
+	border-radius: .4em;
+	margin: 60px 100px;
+	padding: 10px;
+	&:hover {
+		.panel {
+			@include skew(40deg, 6deg);
+			margin-bottom: -20px;
+		}
+	}
+}
+.panel {
+	background: rgba(58,58,58,.6);
+	border: 1px solid #888;
+	margin: 0 0 10px;
+	padding: 20px;
+	position: relative;
+	font-size: 1.4em;
+	text-align: center;
+	opacity: .8;
+	@include transition(1s);
+}
+
+.color1 { background-color: $C1; z-index: 70; }
+.color2 { background-color: $C2; color: #fdfdfd; z-index: 60; }
+.color3 { background-color: $C3; z-index: 50; }
+.color4 { background-color: $C4; z-index: 40; }
+.color5 { background-color: $C5; z-index: 30; }
