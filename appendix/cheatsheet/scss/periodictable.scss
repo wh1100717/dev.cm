@@ -1,0 +1,337 @@
+@import "compass";
+@import "typography";
+
+$PINK: 			#fe2370;
+$GREEN:			#a2e154;
+$YELLOW:		#e6da82;
+$CYAN:			#5bdaec;
+$PURPLE:		#b083ef;
+$OFFWHITE:	#f8f8f3;
+$BROWN:			#757160;
+$ORANGE:		#ff8f00;
+$BLUE:			#4b78cb;
+$DARKGRAY:	#1e1e1e;
+
+$ICON_SIZE: 6.4em;
+$MG: 4px;
+$FONT_FAMILY: 'Chivo';
+
+@mixin webfonts {
+	font-family: $FONT_FAMILY, sans-serif;
+}
+
+@mixin dark-font {
+	.command {
+		color: #666;
+		text-shadow: 0 1px 0 rgba(255,255,255,.2);
+	}
+}
+
+/* basic
+ * ---------------------------------------------- */
+body {
+	background: url(img/17.png) #333;
+	padding: .5em 1em;
+}
+
+.container {
+	margin: 0 auto 2em;
+	min-width: 480px;
+	width: 1168px;
+}
+
+/* typography
+ * ---------------------------------------------- */
+.title,
+.icon .command,
+.info .category,
+kbd,
+.desc.en,
+.legend {
+	@include webfonts;
+}
+
+/* bootstrap
+ * ---------------------------------------------- */
+.row {
+	margin-left: 0;
+	&.topmg {
+		margin-top: $ICON_SIZE / 2;
+	}
+}
+[class*="span"] {
+	margin-left: $MG;
+}
+.span1 {
+	width: auto;
+}
+.offset5  { margin-left: (92px + $MG) * 5 + 8; }
+.offset6  { margin-left: (92px + $MG) * 6 + 9; }
+.offset7  { margin-left: (92px + $MG) * 7 + 9; }
+.offset8  { margin-left: (92px + $MG) * 8 + 9; }
+.offset9  { margin-left: (92px + $MG) * 9 + 10; }
+.offset10 { margin-left: (92px + $MG) * 10 + 11; }
+
+/* Masthead
+ * ---------------------------------------------- */
+.masthead {
+	border-bottom: 1px solid #333;
+	box-shadow: 0 1px 0 rgba(128,128,128, .3);
+	font-weight: bold;
+	p {
+		font-size: 1.6em;
+		margin: .2em .5em .3em;
+	}
+}
+
+.title {
+	color: $OFFWHITE;
+	// font-family: 'Open Sans', sans-serif;
+	text-shadow: 1px 1px 2px rgba(128, 128, 128, 0.2);
+}
+
+
+/* Content header
+ * ---------------------------------------------- */
+.content-header {
+	text-align: center;
+	margin-bottom: -80px;
+	h1 {
+		display: none;
+		font-size: 4em;
+		margin: 38px 0 28px;
+		text-align: center;
+		text-shadow: 1px 1px 2px $YELLOW, 0 0 2px $CYAN;
+	}
+	p {
+		color: $CYAN;
+		display: none;
+		font-size: 1.4em;
+		text-align: center;
+		text-shadow: 0 0 16px $CYAN, 0 0 12px $BLUE;
+	}
+	.title-logo {
+		display: block;
+		margin: 38px auto 0;
+	}
+}
+.btn-group {
+	display: inline-block;
+	list-style: none;
+	margin: 20px auto;
+	min-width: 80px;
+	li {
+		border: 1px solid transparent;
+		float: left;
+		a {
+			display: block;
+			height: 32px;
+			padding: 8px 12px;
+			width: 32px;
+		}
+		&.active {
+			border-color: $CYAN;
+			border-radius: .4em;
+			box-shadow: 0 0 8px $CYAN, 0 0 4px $BLUE;
+		}
+	}
+	.v-divider {
+		background: #666;
+		border: none;
+		border-right: 1px solid #e5e5e5;
+		height: 44px;
+		margin: 2px 18px;
+		width: 1px;
+	}
+}
+
+/* Periodic Table
+ * ---------------------------------------------- */
+.periodic-table {
+	clear: both;
+}
+
+.element {
+	margin-bottom: $MG;
+	position: relative;
+}
+.icon {
+	background: white;
+	border-radius: .3em;
+	cursor: pointer;
+	display: block;
+	font-size: .9em;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	text-align: center;
+	position: relative;
+	@include transition-duration(.2s);
+	.icon-inner {
+		border-radius: .3em;
+		@include background-image(linear-gradient(rgba(0,0,0,0), rgba(128,128,128,.25)));
+		position: relative;
+		width: 100%;
+	}
+	.command {
+		color: #fff;
+		display: block;
+		font-size: 1em;
+		height: $ICON_SIZE;
+		overflow: hidden;
+		padding: 6px;
+		opacity: .8;
+		text-shadow: 0 -1px 0 rgba(58,58,58,.3);
+		width: $ICON_SIZE;
+	}
+	&:hover {
+		box-shadow: 0 0 18px $CYAN, 0 0 12px $BLUE, inset 0 0 4px $OFFWHITE;
+		.icon-inner {
+			background-image: none;
+		}
+	}
+}
+.keypress {
+	font-size: .6em;
+	margin: 0;
+	position: absolute;
+	bottom: .5em;
+	left: 0;
+	width: 100%;
+	kbd {
+		background: #505050;
+		border-radius: 0.3em;
+		box-shadow: inset 0 0 1px #969696, inset 0 -.05em .4em #505050, 0 .1em 0 #1E1E1E, 0 .1em .1em rgba(0, 0, 0, .3);
+		color: #FAFAFA;
+		display: inline-block;
+		font-size: 1.8em;
+		text-align: center;
+		font-weight: normal;
+		text-shadow: -1px -1px 0 #464646;
+		padding: 0.2em;
+		min-width: 1em;
+	}
+}
+
+.navigation .icon			{ background-color: $PINK; }
+.split-window .icon			{ background-color: $GREEN; @include dark-font();}
+.text-manipulation .icon	{ background-color: $CYAN; @include dark-font();}
+.bookmarks .icon			{ background-color: $ORANGE; }
+.find-replace .icon			{ background-color: $PURPLE; }
+.general .icon				{ background-color: $BROWN; }
+.tabs .icon					{ background-color: $BLUE; }
+.editing .icon				{ background-color: $YELLOW; @include dark-font();}
+.code-folding .icon			{ background-color: $OFFWHITE; @include dark-font(); }
+
+/* info
+ * ---------------------------------------------- */
+.info {
+	background: url(img/19.png) #fff;
+	border-radius: .3em;
+	box-shadow: 0 0 12px 2px rgba(0,0,0,.6);
+	display: none;
+	min-height: 80px;
+	padding: 10px 15px;
+	position: absolute;
+	left: 8px;
+	top: 6.6em;
+	width: 260px;
+	z-index: 100;
+	&:after {
+		content: "";
+		left: 2em;
+		top: -24px;
+		height: 0;
+		margin-right: -6px;
+		position: absolute;
+		width: 0;
+		border: 12px solid #fff;
+		border-color: transparent;
+		border-bottom-color: #fff;
+	}
+	h3.keypress {
+		clear: right;
+		font-size: .8em;
+		line-height:1em;
+		margin-bottom: 10px;
+		position: static;
+		kbd {
+			margin: 0 .2em;
+			padding: .5em .3em;
+		}
+	}
+	p {
+		color: #888;
+		text-shadow: none;
+		font-size: 1em;
+	}
+	.desc {
+		text-align: left;
+		&.jp {
+			color: #333;
+		}
+	}
+	.category {
+		display: inline-block;
+		float: right;
+		font-size: .86em;
+		margin-bottom: 0;
+	}
+}
+.info.align-right {
+	left: auto;
+	right: 8px;
+	&:after {
+		left: auto;
+		right: 2em;
+	}
+}
+
+/* legend
+ * ---------------------------------------------- */
+.legend {
+	list-style: none;
+	margin-top: 40px;
+	li {
+		color: #fff;
+		float: left;
+		padding: 10px 0;
+		width: 33%;
+		.icon {
+			display: inline-block;
+			height:1.5em;
+			margin: 0 .4em 0 0;
+			vertical-align: middle;
+			width:1.5em;
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.container { width: auto; }
+	[class*="span"], .uneditable-input[class*="span"], .row-fluid [class*="span"] { float: left;}
+	.offset5,
+	.offset6,
+	.offset7,
+	.offset8,
+	.offset9,
+	.offset10 { margin-left: $MG; }
+	.content-header {
+		margin-bottom: 0;
+		h1 {
+			font-size: 2.8em;
+			margin: 18px 0 10px;
+		}
+		p {
+			font-size: 1.4em;
+		}
+		.title-logo {
+			width: 60%;
+		}
+	}
+	.legend {
+		li { width: 49%; }
+	}
+}
+
+
