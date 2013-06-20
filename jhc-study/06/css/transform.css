@@ -25,7 +25,7 @@ div p {
 }
 
 #area1 {
-  background: url(../images/bg-parallaxsample01.jpg) no-repeat;
+  background: url(../img/bg-parallaxsample01.jpg) no-repeat;
   left: 30px;
   -webkit-transform: scale(0.5, 0.5);
   -moz-transform: scale(0.5, 0.5);
@@ -35,13 +35,13 @@ div p {
 }
 
 #area2 {
-  background: url(../images/bg-parallaxsample02.jpg) no-repeat;
+  background: url(../img/bg-parallaxsample02.jpg) no-repeat;
   top: 200px;
   right: 0;
 }
 
 #area3 {
-  background: url(../images/bg-parallaxsample03.jpg) no-repeat;
+  background: url(../img/bg-parallaxsample03.jpg) no-repeat;
   top: 520px;
   right: 60px;
   -webkit-transform: scale(2, 2);
@@ -52,7 +52,7 @@ div p {
 }
 
 #area4 {
-  background: url(../images/bg-parallaxsample04.jpg) no-repeat;
+  background: url(../img/bg-parallaxsample04.jpg) no-repeat;
   height: 300px;
   top: 400px;
   width: 528px;
