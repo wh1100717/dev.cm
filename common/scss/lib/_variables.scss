@@ -1,0 +1,113 @@
+//
+// Variables
+// --------------------------------------------------
+
+
+// Global values
+// --------------------------------------------------
+
+// Media ueries
+// -------------------------
+// Device width
+$MQ_OLD_MOBILE_PORTRAIT:        320px !default;
+$MQ_OLD_MOBILE_LANDSCAPE:       480px !default;
+
+$MQ_MODERN_MOBILE_PORTRAIT:     320px !default; // 640 resolution.
+$MQ_MODERN_MOBILE_LANDSCAPE:    480px !default; // 960 resolution.
+
+$MQ_FUTURE_MOBILE_PORTRAIT:     640px !default; // new iPhone(5?).
+$MQ_FUTURE_MOBILE_LANDSCAPE:    1136px !default; // new iPhone(5?).
+
+$MQ_OLD_TABLET_PORTRAIT:        768px !default; // 1 or 2.
+$MQ_OLD_TABLET_LANDSCAPE:       1024px !default; // 1 or 2.
+
+$MQ_MODERN_TABLET_PORTRAIT:     768px !default; // new iPad: 1,536 resolution.
+$MQ_MODERN_TABLET_LANDSCAPE:    1024px !default; // new iPad: 2,048 resolution.
+
+$MQ_DESCTOP_NARROW:             1024px !default;
+$MQ_DESCTOP_MODERN:             1280px !default;
+$MQ_DESCTOP_WIDE:               1600px !default;
+$MQ_DESCTOP_HD:                 1920px !default;
+
+// Browser prefix
+$prefixTypes:                   -webkit-, -moz-, -ms-, -o-, '' !default;
+
+
+// Grays
+// -------------------------
+$black:                         #000 !default;
+$grayDarker:                    #222 !default;
+$grayDark:                      #333 !default;
+$gray:                          #555 !default;
+$grayLight:                     #999 !default;
+$grayLighter:                   #eee !default;
+$white:                         #fff !default;
+
+
+// wakamsha colours
+// -------------------------
+$wakaColor1:                    #e61376;    // pink
+$wakaColor2:                    #fcce00;    // yellow
+$wakaColor3:                    #ccff00;    // green
+$wakaGray1:                     #4f4f4f;    // dark gray
+$wakaWhite1:                    #fdfdfd;    // white
+
+
+// Scaffolding
+// -------------------------
+$bodyBackground:                $wakaWhite1;
+$textColor:                     $wakaGray1;
+
+
+// Links
+// -------------------------
+$linkColor:                     $wakaColor1;
+$linkColorHover:                adjust-lightness($wakaColor1, -10);
+$linkBackgroundActive:          $wakaColor2;
+
+
+// Typography
+// -------------------------
+$basicFontFamily:               'Shin Go Regular',Helvetica,Arial,"Hiragino Kaku Gothic Pro","HiraKakuPro-W3",Meiryo,Osaka,sans-serif;
+$sansFontFamily:                "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$webFontFamily:                 'Raleway', sans-serif;
+$basicFontSize:                 14px;
+
+
+// Component sizing
+// -------------------------
+// Based on 14px font-size and 20px line-height
+$basicBorderRadius:             4px;
+$basicLineHeight:               20px;
+
+
+// Buttons
+// -------------------------
+$btnBackground:                 adjust-lightness($wakaWhite1, -6);
+$btnBorder:                     adjust-lightness($wakaWhite1, -10);
+
+
+// Navbar
+// -------------------------
+$navbarHeight:                  30px;
+
+
+// Tables
+// -------------------------
+$tableBackground:               transparent;
+$tableBackgroundAccent:         adjust-lightness($grayLighter, 3);
+$tableBackgroundHover:          adjust-lightness($wakaColor1, 50);
+$tableBorder:                   adjust-lightness($grayLight, 20);
+$tableBorderHoverColor:         $wakaColor1;
+
+
+
+// Header styles
+// --------------------------------------------------
+
+// Author
+// -------------------------
+$authorImageSize:               51px;
+$authorImageBasicPadding:       8px;
+$authorImageBBasicBorderTick:   1px;
+$authorDescriptionMargin:       $authorImageSize + ($authorImageBasicPadding + $authorImageBBasicBorderTick + $authorImageBBasicBorderTick / 3) * 2;

@@ -1,0 +1,210 @@
+//
+// Header
+// --------------------------------------------------
+
+// Global header
+// ----------
+.global-header {
+	font-family: $webFontFamily;
+	margin: 10px 20px 30px;
+}
+
+// masthead
+// ----------
+.masthead {
+	float: left;
+	.contents-title {
+		color: $wakaColor1;
+		font-size: $basicFontSize * 3;
+		line-height: $basicLineHeight * 3 - 8;
+		margin: 0;
+		small {
+			color: $grayLight;
+			font-size: 70%;
+		}
+	}
+	@include mq-tablet('portrait', 'any') {
+		.contents-title {
+			font-size: $basicFontSize * 2.5;
+			line-height: $basicLineHeight * 2.5 - 8;
+		}
+	}
+	@include mq-mobile('landscape', 'any') {
+		float: none;
+		.contents-title {
+			font-size: $basicFontSize * 2;
+			line-height: $basicLineHeight * 2 - 8;
+		}
+	}
+	@include mq-mobile('portrait', 'any') {
+		float: none;
+		.contents-title {
+			font-size: $basicFontSize * 2;
+			line-height: $basicLineHeight * 2 - 8;
+		}
+	}
+}
+
+
+// Author
+// ----------
+.author-container {
+	float: right;
+	// Author image
+	.author-image {
+		border: 1px solid $grayLighter;
+		border-radius: 50%;
+		float: left;
+		height: $authorImageSize;
+		padding: $authorImageBasicPadding;
+		position: relative;
+		width: $authorImageSize;
+		&:before,
+		&:after {
+			border: $authorImageBBasicBorderTick solid $grayLighter;
+			border-radius: 50%;
+			content: "";
+			display: block;
+			height: $authorImageSize;
+			position: absolute;
+			width: $authorImageSize;
+			z-index: -1;
+		}
+		&:before {
+			left: $authorImageBasicPadding * -2;
+			padding: $authorImageBasicPadding * 3;
+			top: $authorImageBasicPadding * -2;
+		}
+		&:after {
+			left: $authorImageBasicPadding * -4;
+			padding: $authorImageBasicPadding * 5;
+			top: $authorImageBasicPadding * -4;
+		}
+		img {
+			border-radius: 50%;
+			height: $authorImageSize;
+			width: $authorImageSize;
+		}
+	}
+
+	// Author description
+	.author-description {
+		margin: $authorImageBasicPadding 0 0 $authorDescriptionMargin;
+		p {
+			margin: 0;
+		}
+		.author-name {
+			font-size: $basicFontSize + 2;
+			line-height: $basicLineHeight;
+		}
+		.author-summary {
+			color: adjust-lightness($wakaColor3, -5);
+			font-size: $basicFontSize;
+			padding: 0 4px;
+		}
+		.author-links {
+			list-style: none;
+			margin: 0;
+			li {
+				float: left;
+				overflow: hidden;
+				height: 16px;
+				padding: 2px 5px 3px;
+				width: 16px;
+				a {
+					display: block;
+					overflow: hidden;
+					height: 16px;
+					width: 16px;
+				}
+			}
+		}
+	}
+
+	@include mq-tablet('portrait', 'any') {
+		float: none;
+		position: absolute;
+		right: 0;
+		top: 0;
+		.author-image {
+				height: $authorImageSize - 9;
+				padding: $authorImageBasicPadding - 2;
+				width: $authorImageSize - 9;
+			&:before,
+			&:after {
+				border: none;
+				content: "";
+				display: none;
+			}
+			img {
+				height: $authorImageSize - 9;
+				width: $authorImageSize - 9;
+			}
+		}
+		.author-description {
+			margin-left: $authorDescriptionMargin - 10;
+			.author-name {
+				font-size: $basicFontSize;
+			}
+			.author-summary {
+				font-size: $basicFontSize - 2;
+				padding: 0 4px;
+			}
+		}
+	}
+
+	@include mq-mobile('landscape', 'any') {
+		float: none;
+		position: absolute;
+		right: 0;
+		top: 0;
+		.author-image {
+			height: $authorImageSize - 9;
+			width: $authorImageSize - 9;
+			&:before,
+			&:after {
+				border: none;
+				content: "";
+				display: none;
+			}
+			img {
+				height: $authorImageSize - 9;
+				width: $authorImageSize - 9;
+			}
+		}
+		.author-description {
+			margin-left: $authorDescriptionMargin - 10;
+			.author-name {
+				font-size: $basicFontSize;
+			}
+			.author-summary {
+				font-size: $basicFontSize - 3;
+				padding: 0 4px;
+			}
+		}
+	}
+
+	@include mq-mobile('portrait', 'any') {
+		float: none;
+		position: absolute;
+		right: 0;
+		top: -4px;
+		.author-image {
+			height: $authorImageSize - 18;
+			width: $authorImageSize - 18;
+			&:before,
+			&:after {
+				border: none;
+				content: "";
+				display: none;
+			}
+			img {
+				height: $authorImageSize - 18;
+				width: $authorImageSize - 18;
+			}
+		}
+		.author-description {
+			display: none;
+		}
+	}
+}
