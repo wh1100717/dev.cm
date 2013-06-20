@@ -1,0 +1,117 @@
+//
+// Tables
+// --------------------------------------------------
+
+
+// Basic table
+// -----------------
+.table {
+	background: $tableBackground;
+	border-collapse: separate;
+	border-spacing: 0;
+	font-size: 85%;
+	margin-bottom: 20px;
+	width: 100%;
+
+	thead {
+		tr {
+			th,
+			td {
+				border: 1px solid $tableBorder;
+				border-left-color: transparent;
+				border-top-color: transparent;
+				font-weight: normal;
+				letter-spacing: .001em;
+				line-height: $basicLineHeight * .7;
+				padding: 10px 10px 5px 5px;
+				text-align: right;
+				vertical-align: bottom;
+				&:first-child {
+					padding-right: 0;
+					text-align: left;
+				}
+				&:last-child {
+					border-right-color: transparent;
+				}
+			}
+		}
+	}
+	tbody {
+		tr {
+			border: 1px solid $wakaWhite1;
+			th,
+			td {
+				border: 1px solid $tableBorder;
+				border-left-color: transparent;
+				border-top-color: transparent;
+				font-weight: normal;
+				padding: 4px 10px;
+				text-align: right;
+				@include box-sizing(border-box);
+				&:first-child {
+					text-align: left;
+				}
+				&:last-child {
+					border-right-color: transparent;
+				}
+			}
+		}
+	}
+}
+
+// Bordered table
+// -----------------
+.table-bordered {
+	border: 1px solid $tableBorder;
+	tbody {
+		tr:last-child {
+			td {
+				border-bottom: 0;
+			}
+		}
+	}
+}
+
+// Striped table
+// -----------------
+.table-striped {
+	tbody {
+		tr:nth-child(odd) {
+			background-color: $tableBackgroundAccent;
+		}
+	}
+}
+
+// Hovered table
+// -----------------
+.table-hover {
+	thead {
+		th,
+		td {
+			@include transition(.1s);
+			&:hover,
+			&:hover {
+				background: $tableBackgroundHover;
+				border: 1px solid $tableBorderHoverColor;
+			}
+		}
+	}
+	tbody {
+		tr {
+			@include transition(.1s);
+		}
+		tr:hover {
+			background: $tableBackgroundHover;
+			td {
+				border-top-color: $tableBorderHoverColor;
+				border-bottom-color: $tableBorderHoverColor;
+				&:first-child {
+					border-left-color: $tableBorderHoverColor;
+				}
+				&:last-child {
+					border-right-color: $tableBorderHoverColor;
+				}
+			}
+		}
+	}
+}
