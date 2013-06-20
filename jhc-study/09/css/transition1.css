@@ -1,0 +1,19 @@
+div {
+  background: #e61374;
+  box-shadow: 0 20px 40px #888888;
+  height: 150px;
+  margin: 60px auto;
+  padding: 15px;
+  width: 150px;
+  -webkit-transition: 0.5s background linear, 0.3s border-radius ease-in;
+  -webkit-transition-delay: 0s, 0.8s;
+  -moz-transition: 0.5s background linear, 0.3s border-radius ease-in 0.8s;
+  -o-transition: 0.5s background linear, 0.3s border-radius ease-in 0.8s;
+  transition: 0.5s background linear, 0.3s border-radius ease-in 0.8s; }
+  div:hover {
+    background: #ccff00;
+    border-radius: 50%; }
+  div dl {
+    margin: 28px 0; }
+  div dd {
+    margin: 0 0 10px; }

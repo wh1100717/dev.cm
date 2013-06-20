@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+body { background: #eee; }
+h1 { color: #aaa; font-size: 150%; font-weight: normal; text-align: center; }
+h2 { color: #aaa; font-size: 120%; }
+dl { font-size: 90%; }
+dt { font-weight: bold; margin-top: 20px; }
+dd { margin-left: 10px; }
+
+ul { list-style: none; }
+
+hr {
+  border: 0;
+  height: 1px;
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #cccccc), color-stop(50%, #999999), color-stop(100%, #cccccc));
+  background-image: -webkit-linear-gradient(left, #cccccc, #999999, #cccccc);
+  background-image: -moz-linear-gradient(left, #cccccc, #999999, #cccccc);
+  background-image: -ms-linear-gradient(left, #cccccc, #999999, #cccccc);
+  background-image: -o-linear-gradient(left, #cccccc, #999999, #cccccc);
+  background-image: linear-gradient(left, #cccccc, #999999, #cccccc);
+}

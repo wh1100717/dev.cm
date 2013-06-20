@@ -1,0 +1,27 @@
+@import "compass";
+
+$DEFAULT_COLOR: #e61374;
+$HOVER_COLOR: #ccff00;
+$SHADOW_COLOR: #888;
+
+div {
+	background: $DEFAULT_COLOR;
+	box-shadow: 0 20px 40px $SHADOW_COLOR;
+	height: 150px;
+	margin: 60px auto;
+	padding: 15px;
+	width: 150px;
+	@include transition((.5s background linear),(.3s border-radius ease-in .8s));
+
+	&:hover {
+		background: $HOVER_COLOR;
+		border-radius: 50%;
+	}
+	dl {
+		margin: 28px 0;
+	}
+
+	dd {
+		margin: 0 0 10px;
+	}
+}
