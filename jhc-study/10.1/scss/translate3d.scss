@@ -1,0 +1,10 @@
+@import "compass";
+@import "3dbasic";
+
+/* box
+----------------------------------------*/
+.square {
+	&.thumbnail {
+		@include translate3d(0,0,50px);
+	}
+}

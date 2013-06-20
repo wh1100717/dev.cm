@@ -1,0 +1,14 @@
+@import "compass";
+@import "3dbasic";
+
+/* box
+----------------------------------------*/
+.square {
+	&.thumbnail {
+		-webkit-backface-visibility: hidden;
+		   -moz-backface-visibility: hidden;
+		     -o-backface-visibility: hidden;
+		    -ms-backface-visibility: hidden;
+
+	}
+}

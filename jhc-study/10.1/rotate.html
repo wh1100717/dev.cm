@@ -1,0 +1,114 @@
+<!doctype html>
+<html><head>
+<meta charset="UTF-8">
+<title>Rotate #1 | CSS3 Transform 3D samples</title>
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/translate3d.css">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+$(function() {
+	var $box = $('.box')
+		$thumbnail = $('.thumbnail'),
+		$boxRotateX = $('#boxRotateX'),
+		$boxRotateY = $('#boxRotateY'),
+		$thumbRotateX = $('#thumbRotateX'),
+		$thumbRotateY = $('#thumbRotateY'),
+		$thumbRotateZ = $('#thumbRotateZ');
+
+	$boxRotateX.change(function(e) {
+		var $this = $(this);
+		rotateBox($this.val(), $boxRotateY.val(), $this);
+	}).trigger('change');
+
+	$boxRotateY.change(function(e) {
+		var $this = $(this);
+		rotateBox($boxRotateX.val(), $this.val(), $this);
+	}).trigger('change');
+
+	$thumbRotateX.change(function(e) {
+		var $this = $(this);
+		rotateThumbnail($this.val(), $thumbRotateY.val(), $thumbRotateZ.val(), $this);
+	}).trigger('change');
+
+	$thumbRotateY.change(function(e) {
+		var $this = $(this);
+		rotateThumbnail($thumbRotateX.val(), $this.val(), $thumbRotateZ.val(), $this);
+	}).trigger('change');
+
+	$thumbRotateZ.change(function(e) {
+		var $this = $(this);
+		rotateThumbnail($thumbRotateX.val(), $thumbRotateY.val(), $this.val(), $this);
+	}).trigger('change');
+
+
+	function rotateBox(valX, valY, $this) {
+		$this.next().text($this.val() + 'deg');
+		$box.css('transform', 'rotateX(' + valX + 'deg) rotateY(' + valY + 'deg)');
+	}
+
+	function rotateThumbnail(valX, valY, valZ, $this) {
+		$this.next().text($this.val() + 'deg');
+		$thumbnail.css('transform', 'rotateX(' + valX + 'deg) rotateY(' + valY + 'deg) rotateZ('+ valZ + 'deg)');
+		console.log('rotate3d(' + valX + 'deg, ' + valY + 'deg, '+ valZ + 'deg)');
+	}
+});
+</script>
+</head>
+<body>
+<h1>Rotate 3D #1 | CSS3 Samples</h1>
+<hr />
+<div class="row">
+	<div class="col-left">
+		<ul class="box">
+			<li class="axis x"><span>X</span></li>
+			<li class="axis y"><span>Y</span></li>
+			<li class="axis z"><span>Z</span></li>
+			<li class="square base"></li>
+			<li class="square thumbnail"></li>
+		</ul>
+	</div>
+	<div class="col-right">
+		<div class="control-container">
+			<h2>Axis box</h2>
+			<div class="controller">
+				<dl>
+					<dt>boxRotateX</dt>
+					<dd>
+						<input id="boxRotateX" type="range" min="-360" max="360" step="1" value="-10">
+						<span class="badge"></span>
+					</dd>
+					<dt>boxRotateY</dt>
+					<dd>
+						<input id="boxRotateY" type="range" min="-360" max="360" step="1" value="-20">
+						<span class="badge"></span>
+					</dd>
+				</dl>
+			</div>
+		</div>
+		<div class="control-container">
+			<h2>Thumbnail - rotate</h2>
+			<div class="controller">
+				<dl>
+					<dt>thumbRotateX</dt>
+					<dd>
+						<input id="thumbRotateX" type="range" min="-360" max="360" value="1" step="1" />
+						<span class="badge"></span>
+					</dd>
+					<dt>thumbRotateY</dt>
+					<dd>
+						<input id="thumbRotateY" type="range" min="-360" max="360" value="1" step="1" />
+						<span class="badge"></span>
+					</dd>
+					<dt>thumbRotateZ</dt>
+					<dd>
+						<input id="thumbRotateZ" type="range" min="-360" max="360" value="45" step="1" />
+						<span class="badge"></span>
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</div>
+	
+</body>
+</html>
