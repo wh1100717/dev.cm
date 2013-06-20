@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery API Benchmark</title>
+<link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" />
+<link rel="stylesheet" href="css/apiBenchmark.css">
+<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+</head>
+<body>
+
+<div id="hoge" class="fuga">
+	&lt;div id="hoge" class="fuga"&gt;
+	<p id="foo" class="piyo">&lt;p id="foo" class="piyo"&gt;</p>
+</div>
+<hr />
+<p>実行結果</p>
+<script>
+	var jqBenchmark = function(selector, parent) {
+		var timeS = new Date();	//計測開始時刻
+		var count = 10000;
+		var temp = 0;
+		while (count--) {
+			var hoge = $(selector, parent);
+			temp++;
+		}
+		var timeE = new Date()	//計測終了時刻
+		return timeE - timeS;
+	};
+
+	var jqFindBenchmark = function(selector, parent) {
+		var timeS = new Date();	//計測開始時刻
+		var count = 10000;
+		var temp = 0;
+		while (count--) {
+			var hoge = $(parent).find(selector);
+			temp++;
+		}
+		var timeE = new Date()	//計測終了時刻
+		return timeE - timeS;
+	};
+
+	document.write(
+	'<table>'
+		+ "<tr><th>$('p', '#hoge') * 10000</th><td class='value'>" + jqBenchmark('p', '#hoge') + ' ms</td></tr>'
+		+ "<tr><th>$('#hoge').find('p') * 10000</th><td class='value'>" + jqFindBenchmark('p','#hoge') + ' ms</td></tr>'
+	+ '</table>');
+</script>
+</body>
+</html>
