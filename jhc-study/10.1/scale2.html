@@ -1,0 +1,125 @@
+<!doctype html>
+<html><head>
+<meta charset="UTF-8">
+<title>Scale #1 | CSS3 Transform 3D samples</title>
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/scale2.css">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+$(function() {
+	var $box = $('.box')
+		$thumbnail = $('.thumbnail'),
+		$rotateX = $('#rotateX'),
+		$rotateY = $('#rotateY'),
+		$scaleX = $('#scaleX'),
+		$scaleY = $('#scaleY'),
+		$scaleZ = $('#scaleZ'),
+		$thumbRotateY = $('#thumbRotateY');
+
+	$rotateX.change(function(e) {
+		var $this = $(this);
+		rotateBox($this.val(), $rotateY.val(), $this);
+	}).trigger('change');
+
+	$rotateY.change(function(e) {
+		var $this = $(this);
+		rotateBox($rotateX.val(), $this.val(), $this);
+	}).trigger('change');
+
+	$scaleX.change(function(e) {
+		var $this = $(this);
+		scaleThumbnail($this.val(), $scaleY.val(), $scaleZ.val(), $thumbRotateY.val(), $this);
+	}).trigger('change');
+
+	$scaleY.change(function(e) {
+		var $this = $(this);
+		scaleThumbnail($scaleX.val(), $this.val(), $scaleZ.val(), $thumbRotateY.val(), $this);
+	}).trigger('change');
+
+	$scaleZ.change(function(e) {
+		var $this = $(this);
+		scaleThumbnail($scaleX.val(), $scaleY.val(), $this.val(), $thumbRotateY.val(), $this);
+	}).trigger('change');
+
+	$thumbRotateY.change(function(e) {
+		var $this = $(this);
+		scaleThumbnail($scaleX.val(), $scaleY.val(), $scaleZ.val(), $this.val(), $this);
+	}).trigger('change');
+
+
+	function rotateBox(valX, valY, $this) {
+		$this.next().text($this.val() + 'deg');
+		$box.css('transform', 'rotateX(' + valX + 'deg) rotateY(' + valY + 'deg)');
+	}
+
+	function scaleThumbnail(valX, valY, valZ, rotateY, $this) {
+		$this.next().text($this.val());
+		$thumbnail.css('transform', 'scale3d(' + valX + ', ' + valY + ', '+ valZ + ') rotateY(' + rotateY + 'deg)');
+	}
+});
+</script>
+</head>
+<body>
+<h1>Scale 3D #2 | CSS3 Samples</h1>
+<hr />
+<div class="row">
+	<div class="col-left">
+		<ul class="box">
+			<li class="axis x"><span>X</span></li>
+			<li class="axis y"><span>Y</span></li>
+			<li class="axis z"><span>Z</span></li>
+			<li class="square base"></li>
+			<li class="square thumbnail"></li>
+		</ul>
+	</div>
+	<div class="col-right">
+		<div class="control-container">
+			<h2>Axis box</h2>
+			<div class="controller">
+				<dl>
+					<dt>rotateX</dt>
+					<dd>
+						<input id="rotateX" type="range" min="-360" max="360" step="1" value="-10">
+						<span class="badge"></span>
+					</dd>
+					<dt>rotateY</dt>
+					<dd>
+						<input id="rotateY" type="range" min="-360" max="360" step="1" value="-20">
+						<span class="badge"></span>
+					</dd>
+				</dl>
+			</div>
+		</div>
+		<div class="control-container">
+			<h2>Thumbnail - scale3d</h2>
+			<div class="controller">
+				<dl>
+					<dt>scaleX</dt>
+					<dd>
+						<input id="scaleX" type="range" min="-10" max="10" value="1" step="0.1" />
+						<span class="badge"></span>
+					</dd>
+					<dt>scaleY</dt>
+					<dd>
+						<input id="scaleY" type="range" min="-10" max="10" value="1" step="0.1" />
+						<span class="badge"></span>
+					</dd>
+					<dt>scaleZ</dt>
+					<dd>
+						<input id="scaleZ" type="range" min="-10" max="10" value="5" step="0.1" />
+						<span class="badge"></span>
+					</dd>
+
+					<dt>rotateY</dt>
+					<dd>
+						<input id="thumbRotateY" type="range" min="-360" max="360" value="45" step="1" />
+						<span class="badge"></span>
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</div>
+	
+</body>
+</html>

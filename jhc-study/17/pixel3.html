@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Pixels #3 | jHC Study</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1,user-scalable=no,initial-scale=1.0">
+<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/dev.cm/jhc-study/common//css/jhc-study.css">
+<!--[if lte IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"><![endif]-->
+</head>
+<body>
+	<header class="global-header clearfix">
+		<div class="masthead">
+			<h5 class="brand">jHC Study</h5>
+			<h1 class="contents-title">Pixels <small>#3</small></h1>
+		</div>
+		<div class="author-container">
+			<div class="author-image">
+				<img src="/dev.cm/jhc-study/common/img/myLogo.jpg">
+			</div>
+			<div class="author-description">
+				<p class="author-name">WAKAMSHA</p>
+				<p class="author-summary">Front-end developer</p>
+			</div>
+		</div>
+	</header>
+
+	<div class="container">
+		<canvas id="canvas"></canvas>
+	</div>
+
+	<footer class="global-footer">
+		<small>&copy; 2013 WAKAMSHA.</small>
+	</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+var src = 'img/img1.jpg';
+
+/* AlbumImage
+ --------------------*/
+var AlbumImage = function(src) {
+	this.url = src;
+};
+
+AlbumImage.prototype.fetch = function(callback) {
+	this.image = new Image();
+	this.image.src = this.url;
+	this.image.onload = function() {
+		if (callback) {
+			callback(this);
+		}
+	}
+};
+
+AlbumImage.prototype.getCanvas = function() {
+	var canvas = document.getElementById('canvas');
+		context = canvas.getContext('2d');
+
+	canvas.width = image.width;
+	canvas.height = image.height;
+
+	context.drawImage(this.image, 0, 0, image.width, image.height);
+
+	this.canvas = canvas;
+
+	return this.canvas;
+};
+
+AlbumImage.prototype.getPixelArray = function() {
+	var data = this.getCanvas().getContext('2d').getImageData(0, 0, this.image.width, this.image.height).data;
+	return data;
+};
+
+// AlbumImage.prototype.getColors = function() {
+// 	var colors = [],
+// 		pixelArray = this.getPixelArray();
+
+// 	for (var i=0, len=pixelArray.length; i<len; i++) {
+// 		var targetPixel = i * 4;
+// 			r = pixelArray[targetPixel + 0],
+// 			g = pixelArray[targetPixel + 1],
+// 			b = pixelArray[targetPixel + 2];
+// 			a = pixelArray[targetPixel + 3];
+// 		colors.push(r, g, b, a);
+// 	}
+// 	this.colors = colors;
+
+// 	return this.colors;
+// };
+
+AlbumImage.prototype.quantizeColors = function() {
+	var imageData = this.getCanvas().getContext('2d').getImageData(0, 0, this.image.width, this.image.height),
+		pixelArray = imageData.data;
+
+	for (var i=0, len=pixelArray.length; i<len; i++) {
+		var targetPixel = i * 4;
+		imageData.data[targetPixel + 0] = imageData.data[targetPixel + 0] & -(0x100/8);
+		imageData.data[targetPixel + 1] = imageData.data[targetPixel + 1] & -(0x100/8);
+		imageData.data[targetPixel + 2] = imageData.data[targetPixel + 2] & -(0x100/4);
+	}
+	this.canvas.getContext('2d').putImageData(imageData, 0, 0);
+};
+
+
+function quantizeColors(imageData) {
+	var pixelArray = imageData.data;
+
+	for (var i=0, len=pixelArray.length; i<len; i+=4) {
+		imageData.data[i + 0] = imageData.data[i + 0] & -(0x100/8);
+		imageData.data[i + 1] = imageData.data[i + 1] & -(0x100/8);
+		imageData.data[i + 2] = imageData.data[i + 2] & -(0x100/4);
+	}
+
+	return imageData;
+}
+
+function getRGBArray(pixelArray) {
+	var obj = [],
+		result = [];
+
+	for (var i=0, len=pixelArray.length; i<len; i+=4) {
+		obj.r = pixelArray[i+0];
+		obj.g = pixelArray[i+1];
+		obj.b = pixelArray[i+2];
+		result.push(obj);
+	}
+
+	return result;
+}
+
+function areSimilarColors(col1, col2) {
+	var delta = 50;
+	if (
+		(Math.abs(col2.r - col1.r) <= delta) &&
+		(Math.abs(col2.g - col1.g) <= delta) &&
+		(Math.abs(col2.b - col1.b) <= delta)
+	) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function getAverageColor(col1, col2) {
+	var averageColor = [];
+	averageColor.r = Math.round((col1.r + col2.r) / 2);
+	averageColor.g = Math.round((col1.g + col2.g) / 2);
+	averageColor.b = Math.round((col1.b + col2.b) / 2);
+
+	return averageColor;
+}
+
+
+var image = new Image();
+image.onload = function() {
+	// canvas要素を取得・生成
+	var canvas = document.getElementById('canvas'),
+		ctx = canvas.getContext('2d');
+
+	// 画像をcanvasに描画
+	canvas.width = image.width;
+	canvas.height = image.height;
+	ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+	// 画像の減色処理
+	var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+	ctx.putImageData(quantizeColors(imageData), 0, 0);
+
+	var rgbArray = getRGBArray(imageData.data),
+		uniqueColors = [];
+
+	while (rgbArray.length > 0) {
+		var basePixel = rgbArray.shift(),
+			avgColor = basePixel,
+			i = 0;
+		while (rgbArray.length > i) {
+			var secondPixel = rgbArray[i];
+			if (areSimilarColors(basePixel, secondPixel)) {
+				avgColor = getAverageColor(avgColor, rgbArray.splice(i, 1)[0]);
+			} else {
+				i++;
+			}
+		}
+		uniqueColors.push(avgColor);
+	}
+};
+
+image.src = src;
+
+</script>
+</body>
+</html>

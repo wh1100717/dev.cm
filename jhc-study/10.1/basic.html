@@ -1,0 +1,72 @@
+<!doctype html>
+<html><head>
+<meta charset="UTF-8">
+<title>Transforms 3D - basic | CSS3 Transform 3D samples</title>
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/3dbasic.css">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+$(function() {
+	var $box = $('.box')
+		$thumbnail = $('.thumbnail'),
+		$rotateX = $('#rotateX'),
+		$rotateY = $('#rotateY'),
+		$translateX = $('#translateX'),
+		$translateY = $('#translateY'),
+		$translateZ = $('#translateZ');
+
+	$rotateX.change(function(e) {
+		var $this = $(this);
+		rotateBox($this.val(), $rotateY.val(), $this);
+	}).trigger('change');
+
+	$rotateY.change(function(e) {
+		var $this = $(this);
+		rotateBox($rotateX.val(), $this.val(), $this);
+	}).trigger('change');
+
+
+	function rotateBox(valX, valY, $this) {
+		$this.next().text($this.val() + 'deg');
+		$box.css('transform', 'rotateX(' + valX + 'deg) rotateY(' + valY + 'deg)');
+	}
+
+});
+</script>
+</head>
+<body>
+<h1>Transform 3D - basic | CSS3 Samples</h1>
+<hr />
+<div class="row">
+	<div class="col-left">
+		<ul class="box">
+			<li class="axis x"><span>X</span></li>
+			<li class="axis y"><span>Y</span></li>
+			<li class="axis z"><span>Z</span></li>
+			<li class="square base"></li>
+			<li class="square thumbnail"></li>
+		</ul>
+	</div>
+	<div class="col-right">
+		<div class="control-container">
+			<h2>Axis box</h2>
+			<div class="controller">
+				<dl>
+					<dt>rotateX</dt>
+					<dd>
+						<input id="rotateX" type="range" min="-360" max="360" step="1" value="-10">
+						<span class="badge"></span>
+					</dd>
+					<dt>rotateY</dt>
+					<dd>
+						<input id="rotateY" type="range" min="-360" max="360" step="1" value="-20">
+						<span class="badge"></span>
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</div>
+	
+</body>
+</html>

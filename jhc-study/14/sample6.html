@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>#6 - Set option | jQuery UI Widget</title>
+<link href='http://fonts.googleapis.com/css?family=Chivo' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="../common/css/common.css">
+<link rel="stylesheet" href="../11/css/circlemenu.css">
+<link rel="stylesheet" href="css/captionator.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+<script src="../11/js/jquery.circlemenu.js"></script>
+<script src="js/jquery.captionator6.js"></script>
+<script>
+
+$(function() {
+	$('img').captionator({
+		backgroundColor: '#aeee00'
+	});
+
+	$('#getCapParamBtn').click(function(e) {
+		var disabledClassName = $('img').captionator('getDisabledClassName');
+		if ($('img').hasClass(disabledClassName)) {
+			console.log(disabledClassName);
+			return false;
+		}
+		var keys = new Array('width', 'height', 'backgroundColor', 'color'),
+			vals = $('img').captionator('getCaptionAttr', keys),
+			$valueList = $('#valueList');
+		for (var i=0, len=vals.length; i<len; i++) {
+			$valueList.append($('<li/>').text(vals[i]));
+		}
+	});
+
+	$('.btn').click(function(e) {
+		e.preventDefault();
+		var key = $('#target').val(),
+			val = $(this).val();
+		$('img').captionator('option', key, val);
+	});
+
+	$('.controls').circlemenu({
+		startAngle: 90,
+		angleDifference: 330,
+		radius: 120
+	});
+	$('.menu-button').trigger('click');
+});
+</script>
+</head>
+<body>
+	<header class="global-header">
+		<p class="masthead">WAKAMSHA</p>
+		<h1>#6 - Set option | jQuery UI Widget</h1>
+	</header><!-- /header -->
+	<hr />
+	<aside class="summary">
+		<p>カラーボタンをクリックすると、コンボボックスで選択されている項目に反映されます。</p>
+	</aside>
+
+	<div class="center">
+		<img src="../common/img/myLogo.jpg" height="251" width="251" alt="wakamsha logo." title="本名は山田直樹です。" />
+		<div class="center controls">
+			<select id="target">
+				<option value="color">Color</option>
+				<option value="backgroundColor">backgroundColor</option>}
+			</select>
+			<a href="#" class="menu-button" style="display: none;"></a>
+			<ul class="menu-option">
+				<li><button value="#000" class="btn black"> </button></li>
+				<li><button value="#333" class="btn gray"> </button></li>
+				<li><button value="#ff358b" class="btn pink"> </button></li>
+				<li><button value="#01b0f0" class="btn blue"> </button></li>
+				<li><button value="#aeee00" class="btn green"> </button></li>
+				<li><button value="#ebb318" class="btn yellow"> </button></li>
+
+				<li><button value="#6d3995" class="btn cielo1"> </button></li>
+				<li><button value="#9640a9" class="btn cielo2"> </button></li>
+				<li><button value="#88a7d3" class="btn cielo3"> </button></li>
+				<li><button value="#96d989" class="btn cielo4"> </button></li>
+				<li><button value="#ffe8ad" class="btn cielo5"> </button></li>
+				<li><button value="#328f5f" class="btn cielo6"> </button></li>
+			</ul>
+		</div>
+	</div>
+
+
+	<div class="center">
+		<ul id="valueList"></ul>
+	</div>
+
+</body>
+</html>
+

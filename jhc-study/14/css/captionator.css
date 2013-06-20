@@ -1,0 +1,93 @@
+.polaroid {
+  background: #fff;
+  border: 1px solid #888888;
+  border-radius: 4px;
+  box-shadow: 0 20px 40px rgba(58, 58, 58, 0.6);
+  padding: 4px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition-property: background;
+  -moz-transition-property: background;
+  -o-transition-property: background;
+  transition-property: background;
+  -webkit-transition-duration: 2s;
+  -moz-transition-duration: 2s;
+  -o-transition-duration: 2s;
+  transition-duration: 2s;
+}
+
+.ui-caption-container {
+  display: inline-block;
+  margin: 0 auto;
+  position: relative;
+}
+
+.ui-caption {
+  display: block;
+  padding: 10px;
+  position: absolute;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+}
+
+.controls {
+  position: relative;
+  width: 40px;
+  top: 155px;
+  margin: auto;
+  width: 312px;
+  left: 140px;
+}
+
+#target {
+  left: -130px;
+  position: relative;
+  top: -10px;
+  width: 130px;
+}
+
+.btn {
+  cursor: pointer;
+}
+.btn.black {
+  background: black;
+}
+.btn.gray {
+  background: #333333;
+}
+.btn.pink {
+  background: #ff358b;
+}
+.btn.blue {
+  background: #01b0f0;
+}
+.btn.green {
+  background: #aeee00;
+}
+.btn.yellow {
+  background: #ebb318;
+}
+.btn.cielo1 {
+  background: #6d3995;
+}
+.btn.cielo2 {
+  background: #9640a9;
+}
+.btn.cielo3 {
+  background: #88a7d3;
+}
+.btn.cielo4 {
+  background: #96d989;
+}
+.btn.cielo5 {
+  background: #ffe8ad;
+}
+.btn.cielo6 {
+  background: #328f5f;
+}
+.btn.cielo7 {
+  background: #BF3F34;
+}

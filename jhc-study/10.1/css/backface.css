@@ -1,0 +1,148 @@
+/* box
+----------------------------------------*/
+.box {
+  list-style: none;
+  height: 300px;
+  margin: 0 60px;
+  padding: 0;
+  position: relative;
+  width: 300px;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: rotateX(-10deg) rotateY(-20deg);
+  -moz-transform: rotateX(-10deg) rotateY(-20deg);
+  -ms-transform: rotateX(-10deg) rotateY(-20deg);
+  -o-transform: rotateX(-10deg) rotateY(-20deg);
+  transform: rotateX(-10deg) rotateY(-20deg);
+}
+
+.axis {
+  border-bottom: 1px solid;
+  display: block;
+  height: 0;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  width: 300px;
+}
+.axis:after {
+  border: 8px solid transparent;
+  content: "";
+  display: block;
+  position: absolute;
+  right: -8px;
+  top: -7px;
+}
+.axis.x {
+  border-bottom-color: #00f;
+}
+.axis.x:after {
+  border-left-color: #00f;
+}
+.axis.y {
+  border-bottom-color: #f00;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.axis.y:after {
+  border-left-color: #f00;
+}
+.axis.z {
+  border-bottom-color: #0f0;
+  -webkit-transform: rotateY(-90deg) scaleZ(1);
+  -moz-transform: rotateY(-90deg) scaleZ(1);
+  -ms-transform: rotateY(-90deg) scaleZ(1);
+  -o-transform: rotateY(-90deg) scaleZ(1);
+  transform: rotateY(-90deg) scaleZ(1);
+}
+.axis.z:after {
+  border-left-color: #0f0;
+}
+.axis span {
+  display: block;
+  margin-top: 5px;
+}
+
+.square {
+  height: 240px;
+  margin: 0 30px;
+  position: relative;
+  top: 30px;
+  width: 240px;
+}
+.square.base {
+  background: rgba(48, 141, 191, 0.4);
+}
+.square.thumbnail {
+  background: url(../img/myLogo.jpg) no-repeat;
+  background-size: 240px 240px;
+  opacity: .6;
+  position: absolute;
+}
+
+/* row
+----------------------------------------*/
+.col-left {
+  float: left;
+}
+
+.col-right {
+  margin-left: 420px;
+}
+
+/* controller
+----------------------------------------*/
+.control-container {
+  border: 1px solid #888;
+  border-radius: .3em;
+  margin: 20px 0;
+}
+.control-container h2 {
+  background: #666;
+  color: #fdfdfd;
+  margin: 0;
+  border-bottom: 1px solid #AAA;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+  padding: 4px 20px 3px;
+}
+
+.controller {
+  margin: 5px 10px;
+}
+.controller dt {
+  float: left;
+  margin: 0;
+  text-align: right;
+  width: 100px;
+}
+.controller dd {
+  margin-bottom: 30px;
+  margin-left: 120px;
+}
+.controller input[type="range"] {
+  width: 80%;
+}
+.controller .badge {
+  border: 1px solid #888;
+  border-radius: 1em;
+  box-shadow: inset 0 1px 2px rgba(58, 58, 58, 0.2);
+  line-height: 1em;
+  padding: .4em .8em;
+  position: relative;
+  top: -3px;
+}
+
+/* box
+----------------------------------------*/
+.square.thumbnail {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+}
