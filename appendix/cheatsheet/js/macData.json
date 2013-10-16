@@ -1,0 +1,297 @@
+﻿{
+	"textManipulation": {
+		"data": [
+			{
+				"descJp":   "選択範囲の文字列を全て大文字にします。",
+				"descEn":   "to Uppercase.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>K</kbd><kbd>U</kbd>"
+			},
+			{
+				"descJp":   "選択範囲の文字列を全て小文字にします。",
+				"descEn":   "to Lowercase.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>K</kbd><kbd>L</kbd>"
+			}
+		],
+		"category": "Text manipulation"
+	},
+	"navigation": {
+		"data": [
+			{
+				"descJp":   "ファイル選択パレットを開きます。ファイル名キーワードで検索が出来ます。",
+				"descEn":   "Quick-open files by name.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>P</kbd>"
+			},
+			{
+				"descJp":   "プロジェクト内の関数やクラスを検索するパレットを開きます。",
+				"descEn":   "Goto symbol.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>R</kbd>"
+			},
+			{
+				"descJp":   "ファイル内の文字列を検索するパレットを開きます。",
+				"descEn":   "Goto word in current file.",
+				"keypress": ""
+			},
+			{
+				"descJp":   "行選択パレットが開き、入力した行にジャンプします。",
+				"descEn":   "Goto line in current file.",
+				"keypress": "<kbd>&#x2303;</kbd>+<kbd>G</kbd>"
+			}
+		],
+		"category": "Navigation/Goto Anywhere"
+	},
+	"findReplace": {
+		"data": [
+			{
+				"descJp":   "検索ボックスを開きます。Escキーでボックスを閉じます。",
+				"descEn":   "Find.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>F</kbd>"
+			},
+			{
+				"descJp":   "置換ボックスを開きます。Escキーでボックスを閉じます。",
+				"descEn":   "Replace.",
+				"keypress": ""
+			},
+			{
+				"descJp":   "ファイルやフォルダを指定して検索するボックスを開きます。（※置換も可能）",
+				"descEn":   "Find in files.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>&#x21E7;</kbd>+<kbd>F</kbd>"
+			}
+		],
+		"category": "Find/Replace"
+	},
+	"general": {
+		"data": [
+			{
+				"descJp":   "ユーザー設定ファイル(Preferences.sublime-settings)を開きます。",
+				"descEn":   "Open the Setting (Preferences) file.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>,</kbd>"
+			},
+			{
+				"descJp":   "コマンドパレットを開きます。",
+				"descEn":   "Cmd prompt.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>&#x21E7;</kbd>+<kbd>P</kbd>"
+			},
+			{
+				"descJp":   "サイドバーの表示/非表示を切り替えます。",
+				"descEn":   "Side bar.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>K</kbd><kbd>B</kbd>"
+			},
+			{
+				"descJp":   "カーソルのある文字列のスコープを、ステータスバーに表示します。",
+				"descEn":   "Show scope in status bar.",
+				"keypress": "<kbd>&#x2303;</kbd>+<kbd>&#x21E7;</kbd>+<kbd>P</kbd>"
+			}
+		],
+		"category": "General"
+	},
+	"bookmarks": {
+		"data": [
+			{
+				"descJp":   "カーソルのある行をブックマークします。もう一度同じ操作をすることでブックマークを解除します。",
+				"descEn":   "Bookmark.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>F2</kbd>"
+			},
+			{
+				"descJp":   "次のブックマークに移動します。",
+				"descEn":   "Next bookmark.",
+				"keypress": "<kbd>F2</kbd>"
+			},
+			{
+				"descJp":   "一つ前のブックマークに移動します。",
+				"descEn":   "Previous bookmark.",
+				"keypress": "<kbd>&#x21E7;</kbd>+<kbd>F2</kbd>"
+			},
+			{
+				"descJp":   "登録済みブックマークを全て解除します。",
+				"descEn":   "Clear bookmark.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>&#x21E7;</kbd>+<kbd>F2</kbd>"
+			}
+		],
+		"category": "Bookmarks"
+	},
+	"splitWindow": {
+		"data": [
+			{
+				"descJp":   "ビューを縦2列に分割します。",
+				"descEn":   "Split view into two columns.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>&#x2325;</kbd>+<kbd>2</kbd>"
+			},
+			{
+				"descJp":   "分割されたビューを一つに戻します。",
+				"descEn":   "Revert view to 1 column.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>&#x2325;</kbd>+<kbd>1</kbd>"
+			},
+			{
+				"descJp":   "ビューをグリッド形式に4分割します。",
+				"descEn":   "Set view to grid(4groups).",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>&#x2325;</kbd>+<kbd>5</kbd>"
+			},
+			{
+				"descJp":   "ビューを横2行に分割します。",
+				"descEn":   "Split view into two rows.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>&#x2325;</kbd>+<kbd>&#x21E7;</kbd>+<kbd>2</kbd>"
+			},
+			{
+				"descJp":   "1から4までのキーで指定したビュー（グループ）に移動します。",
+				"descEn":   "Jump to group where num is 1-4.",
+				"keypress": "<kbd>&#x2303;</kbd>+<kbd>[Num]</kbd>"
+			},
+			{
+				"descJp":   "フォーカスの当たっているタブを、1から4までのキーで指定したビュー（グループ）に移動します。",
+				"descEn":   "Move file to specified group where num is 1-4.",
+				"keypress": "<kbd>&#x2303;</kbd>+<kbd>&#x21E7;</kbd>+<kbd>[Num]</kbd>"
+			}
+		],
+		"category": "Split window"
+	},
+	"tabs": {
+		"data": [
+			{
+				"descJp":   "最後に閉じたタブ（ファイル）を開きます。",
+				"descEn":   "Open last closed tab.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>&#x21E7;</kbd>+<kbd>T</kbd>"
+			},
+			{
+				"descJp":   "表示（フォーカス）するタブを一つ前のモノに切り替えます。",
+				"descEn":   "Cycle up through tabs.",
+				"keypress": ""
+			},
+			{
+				"descJp":   "表示（フォーカス）するタブを一つ後ろのモノに切り替えます。",
+				"descEn":   "Cycle down through tabs.",
+				"keypress": ""
+			},
+			{
+				"descJp":   "カーソル移動を単語単位で行います。",
+				"descEn":   "Find in files.",
+				"keypress": ""
+			}
+		],
+		"category": "Tabs"
+	},
+	"editing": {
+		"data": [
+			{
+				"descJp":   "カーソルのある行を削除します。",
+				"descEn":   "Delete line.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>X</kbd>"
+			},
+			{
+				"descJp":   "カーソルのある行の一つ下に改行を追加します。",
+				"descEn":   "Insert line after.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>&#x23ce;</kbd>"
+			},
+			{
+				"descJp":   "カーソルのある行の一つ上に改行を追加します。",
+				"descEn":   "Insert line before.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>&#x21E7;</kbd>+<kbd>&#x23ce;</kbd>"
+			},
+			{
+				"descJp":   "カーソルのある行を、一つ上の行と入れ替えます。",
+				"descEn":   "Move line/selection up.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>&#x21E7;</kbd>+<kbd>&#8593;</kbd>"
+			},
+			{
+				"descJp":   "カーソルのある行を、一つ下の行と入れ替えます。",
+				"descEn":   "Move line/selection down.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>&#x21E7;</kbd>+<kbd>&#8595;</kbd>"
+			},
+			{
+				"descJp":   "カーソルのある行を選択します。連続して入力するとカーソルのある行の下の行も順に追加選択されます。",
+				"descEn":   "Select line - Repeat to select next lines.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>L</kbd>"
+			},
+			{
+				"descJp":   "カーソルのあるテキストを選択し、同じ文字列全てに照準を合わせます。",
+				"descEn":   "Select word - Repeat select others occurrences.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>D</kbd>"
+			},
+			{
+				"descJp":   "カーソルのあるブロックの閉じ括弧、および開き括弧へ交互にジャンプします。",
+				"descEn":   "Jump to closing parentheses. Repeat to jump to opening parentheses.",
+				"keypress": "<kbd>&#x2303;</kbd>+<kbd>M</kbd>"
+			},
+			{
+				"descJp":   "カーソルのあるブロック内の全要素を選択します。",
+				"descEn":   "Select all contents of the current parentheses.",
+				"keypress": "<kbd>&#x2303;</kbd>+<kbd>&#x21E7;</kbd>+<kbd>M</kbd>"
+			},
+			{
+				"descJp":   "カーソル位置から行末までの文字列を削除します。",
+				"descEn":   "Delete from cursor to end of line.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>K</kbd><kbd>K</kbd>"
+			},
+			{
+				"descJp":   "カーソル位置から行の先頭までの文字列を削除します。",
+				"descEn":   "Delete from cursor to start of line.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>K</kbd>+<kbd>⌫</kbd>"
+			},
+			{
+				"descJp":   "選択している行のインデントを一つ下げます。（※複数行可能）",
+				"descEn":   "Indent line(s).",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>]</kbd>"
+			},
+			{
+				"descJp":   "選択している行のインデントを一つ上げます。（※複数行可能）",
+				"descEn":   "Un-indent line(s).",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>[</kbd>"
+			},
+			{
+				"descJp":   "選択している行を複製します。（※複数行選択可能）",
+				"descEn":   "Duplicate line(s).",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>&#x21E7;</kbd>+<kbd>D</kbd>"
+			},
+			{
+				"descJp":   "カーソルのある行と一つ下の行を、一行に連結します。",
+				"descEn":   "Join line below to the end of the current line.",
+				"keypress": ""
+			},
+			{
+				"descJp":   "選択している行のラインコメント/コメント解除を切り替えます。（※複数行選択可能）",
+				"descEn":   "Comment/un-cwomment current line.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>/</kbd>"
+			},
+			{
+				"descJp":   "選択している文字列のブロックコメント/コメント解除を切り替えます。",
+				"descEn":   "Block comment current selection.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>&#x2325;</kbd>+<kbd>/</kbd>"
+			},
+			{
+				"descJp":   "最後に実行したキーボード操作を、再実行します。",
+				"descEn":   "Redo, or repeat last keyboard shortcut command.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>Y</kbd>"
+			},
+			{
+				"descJp":   "インデントが付与された状態で貼り付けが実行されます。",
+				"descEn":   "Paste and indent correctly.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>&#x21E7;</kbd>+<kbd>V</kbd>"
+			},
+			{
+				"descJp":   "オートコンプリート機能を呼び出します。",
+				"descEn":   "Select next auto-complete suggestion.",
+				"keypress": "<kbd>&#x2303;</kbd>+<kbd>Space</kbd>"
+			},
+			{
+				"descJp":   "アンドゥを実行する前に最後の変更箇所にカーソルをジャンプさせます。もう一度同じ操作をすることでアンドゥが実行されます。",
+				"descEn":   "soft undo; jumps to your last change before undoing change when repeated.",
+				"keypress": "<kbd>&#x2303;</kbd>+<kbd>U</kbd>"
+			}
+		],
+		"category": "Editing"
+	},
+	"codeFolding": {
+		"data": [
+			{
+				"descJp":   "全てのタグを折りたたみます。",
+				"descEn":   "Fold tag Attributes.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>K</kbd><kbd>T</kbd>"
+			},
+			{
+				"descJp":   "折りたたまれたタグを元に戻します。",
+				"descEn":   "Unfold All tags.",
+				"keypress": "<kbd>&#x2318;</kbd>+<kbd>K</kbd><kbd>J</kbd>"
+			}
+		],
+		"category": "Code folding"
+	}
+}

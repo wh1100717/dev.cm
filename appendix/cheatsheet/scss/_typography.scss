@@ -1,0 +1,7 @@
+/*---------- Typography ----------*/
+* html body {/* =ie6 */
+	font-family: MS PGothic, "MS Pゴシック", Osaka, sans-serif;
+	text-autospace: ideograph-alpha;
+} /* =ie7, =ie8 */
+*+html body { font-family: Meiryo, "メイリオ", MS PGothic, "MS Pゴシック", Osaka, sans-serif; }
+body { font-family: Helvetica, Arial, "Hiragino Kaku Gothic Pro", "HiraKakuPro-W3", "ヒラギノ角ゴ Pro W3", Meiryo, "メイリオ", Osaka, sans-serif; }
