@@ -1,0 +1,36 @@
+.box {
+  border-radius: 50px;
+  background: #333333;
+  box-shadow: 0 20px 40px #888888;
+  height: 100px;
+  margin: 0 auto 10px;
+  overflow: hidden;
+  width: 100px;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+.box:hover {
+  cursor: pointer;
+}
+.box p {
+  color: #fff;
+  text-align: center;
+}
+
+.btn .black {
+  background: black;
+}
+.btn .black {
+  background: #333333;
+}
+.btn .pink {
+  background: #ff358b;
+}
+.btn .blue {
+  background: #01b0f0;
+}
+.btn .green {
+  background: #aeee00;
+}

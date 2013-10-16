@@ -1,0 +1,29 @@
+@import "compass";
+@import "animation";
+
+div {
+	background: #fff;
+  box-shadow: 0 20px 40px #888888;
+  height: 170px;
+  margin: 60px auto;
+  padding: 15px;
+  width: 170px;
+
+  p {
+  	line-height: 170px;
+  	margin: 0;
+  	text-align: center;
+  }
+
+  &:hover {
+  	@include setAnimation(myAnimation, 3s, linear, 0s, 1, normal, both);
+  }
+}
+
+
+@include keyframes(myAnimation) {
+	0%   { background-color: #e61374; }
+	25%  { border-radius: 50%; }
+  50%  { background-color: #ccff00; border-radius: 50%; @include scale(1);}
+  100% { border-radius: 50%; @include scale(100,0); }
+}

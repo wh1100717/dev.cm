@@ -1,0 +1,112 @@
+@import "compass";
+$NAV_COLOR: #e61374;
+
+@mixin parsTransform($perspective: 1000px, $rotateX: 0deg, $rotateY: 0deg) {
+	-webkit-transform: perspective($perspective)  translateX($rotateX) rotateY($rotateY);
+	-moz-transform: perspective($perspective)  translateX($rotateX) rotateY($rotateY);
+	-o-transform: perspective($perspective)  translateX($rotateX) rotateY($rotateY);
+	-ms-transform: perspective($perspective)  translateX($rotateX) rotateY($rotateY);
+	transform: perspective($perspective)  translateX($rotateX) rotateY($rotateY);
+}
+
+body {
+	background: #333;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	border-radius: .2em;
+	color: #fff;
+	display: block;
+	padding: 4px;
+	text-decoration: none;
+	@include transition(.1s color ease);
+
+	&:before {
+		color : #fff;
+		content: "-";
+		margin-right: 5px;
+	}
+	&:hover,&:active {
+		background: #ccff00;
+		color: #4d4d4d;
+	}
+}
+
+/* article
+ ----------------------------------------*/
+article {
+	background: #fff;
+	overflow: auto;
+	padding: 30px 15%;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left:0;
+	width: 70%;
+	z-index: 0;
+	@include transform-origin(0, 50%);
+}
+
+/* ---------- CSS Transition ---------- */
+article,
+article:after,
+nav,
+nav * {
+	@include transition(all .6s ease);
+}
+
+/* side nav
+ ----------------------------------------*/
+nav {
+	background: $NAV_COLOR;
+	border-right: 28px solid $NAV_COLOR;
+	box-shadow: 4px 0 4px rgba(64,64,64,.4);
+	cursor: pointer;
+	padding: 20px 0 20px 20px;
+	position: fixed;
+	top:0;
+	bottom: 0;
+	left: -14em;
+	z-index: 10;
+
+	&:after {
+		border: 15px solid;
+		border-color: transparent transparent transparent $NAV_COLOR;
+		content: " ";
+		height: 0;
+		margin-top: -7px;
+		position: absolute;
+		top: 50%;
+		right: -58px;
+		width: 0;
+	}
+
+	&:hover {
+		left: 0;
+	}
+	&:hover ~ article {
+		@include parsTransform(600px, 16em, 10deg);
+		@include background-image(linear-gradient(right, rgba(0,0,0,.5) 0%, #fff 40%));
+	}
+
+//	&:hover ~ article {
+	//}
+	h2 {
+		font-size: 1em;
+		margin: 0;
+		padding:0;
+	}
+	ul {
+		margin-top: 10px;
+		padding-left: 10px;
+	}
+	li {
+		list-style: none;
+		margin: 0;
+		padding: 3px 10px;
+		width: 12em;
+	}
+}

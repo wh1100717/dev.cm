@@ -1,0 +1,185 @@
+//
+// Mixins
+// --------------------------------------------------
+
+
+// UTILITY MIXINS
+// --------------------------------------------------
+
+// Clearfix
+// --------
+// For clearing floats like a boss h5bp.com/q
+@mixin clearfix {
+	*zoom: 1;
+	&:before,
+	&:after {
+		display: table;
+		content: "";
+		line-height: 0;
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+
+// Animations
+// --------------------------------------------------
+@mixin keyframes($name) {
+	@-webkit-keyframes #{$name} { @content; }
+	@-moz-keyframes #{$name} { @content; }
+	@-ms-keyframes #{$name} { @content; }
+	@keyframes #{$name} { @content; }
+}
+
+@mixin setAnimation($name, $duration: 1s, $timing: ease, $delay: 0s, $iterationCount: 1, $direction: normal, $fillMode: none) {
+	-webkit-animation: $name $duration $timing $delay $iterationCount $direction $fillMode;
+	-moz-animation: $name $duration $timing $delay $iterationCount $direction $fillMode;
+	-o-animation: $name $duration $timing $delay $iterationCount $direction $fillMode;
+	-ms-animation: $name $duration $timing $delay $iterationCount $direction $fillMode;
+	animation: $name $duration $timing $delay $iterationCount $direction $fillMode;
+}
+
+@mixin animation-fill-mode($fillMode: none) {
+	-webkit-animation-fill-mode: $fillMode;
+	-moz-animation-fill-mode: $fillMode;
+	-o-animation-fill-mode: $fillMode;
+	-ms-animation-fill-mode: $fillMode;
+	animation-fill-mode: $fillMode;
+}
+
+
+// Media queries
+// --------------------------------------------------
+@mixin mq-mobile ( $orientation: portrait, $version: old ) {
+	@each $prefix in $prefixTypes {
+		@if $version == old {
+			@if $orientation == portrait {
+				@media screen
+					and ( min-width: 0 )
+					and ( max-width: $MQ_OLD_MOBILE_PORTRAIT )
+					and ( #{$prefix}device-pixel-ratio: 1 ) {
+						@content;
+					}
+			} @else if $orientation == landscape {
+				@media screen
+					and ( min-width: $MQ_OLD_MOBILE_PORTRAIT + 1 )
+					and ( max-width: $MQ_OLD_MOBILE_LANDSCAPE )
+					and ( #{$prefix}device-pixel-ratio: 1 ) {
+						@content;
+					}
+			}
+		} @else if $version == modern {
+			@if $orientation == portrait {
+				@media screen
+					and ( min-width: $MQ_OLD_MOBILE_LANDSCAPE + 1 )
+					and ( max-width: $MQ_MODERN_MOBILE_PORTRAIT )
+					and ( #{$prefix}min-device-pixel-ratio: 1.5 ) {
+						@content;
+					}
+			} @else if $orientation == landscape {
+				@media screen
+					and ( min-width: $MQ_MODERN_MOBILE_PORTRAIT + 1 )
+					and ( max-width: $MQ_MODERN_MOBILE_LANDSCAPE )
+					and ( #{$prefix}min-device-pixel-ratio: 1.5 ) {
+						@content;
+					}
+			}
+		} @else if $version == any {
+			@if $orientation == portrait {
+				@media screen
+					and ( min-width: 0 )
+					and ( max-width: $MQ_OLD_MOBILE_PORTRAIT )
+					and ( #{$prefix}device-pixel-ratio: 1 ) {
+						@content;
+					}
+				@media screen
+					and ( min-width: 0 )
+					and ( max-width: $MQ_MODERN_MOBILE_PORTRAIT )
+					and ( #{$prefix}min-device-pixel-ratio: 1.5 ) {
+						@content;
+					}
+			} @else if $orientation == landscape {
+				@media screen
+					and ( min-width: $MQ_OLD_MOBILE_PORTRAIT + 1 )
+					and ( max-width: $MQ_OLD_MOBILE_LANDSCAPE )
+					and ( #{$prefix}device-pixel-ratio: 1 ) {
+						@content;
+					}
+				@media screen
+					and ( min-width: $MQ_MODERN_MOBILE_PORTRAIT + 1 )
+					and ( max-width: $MQ_MODERN_MOBILE_LANDSCAPE )
+					and ( #{$prefix}min-device-pixel-ratio: 1.5 ) {
+						@content;
+					}
+			}
+		}
+	}
+}
+
+
+@mixin mq-tablet ( $orientation: portrait, $version: old ) {
+	@each $prefix in $prefixTypes {
+		@if $version == old {
+			@if $orientation == portrait {
+				@media screen
+					and ( min-width: $MQ_OLD_MOBILE_LANDSCAPE + 1 )
+					and ( max-width: $MQ_OLD_TABLET_PORTRAIT )
+					and ( #{$prefix}device-pixel-ratio: 1 ) {
+						@content;
+					}
+			} @else if $orientation == landscape {
+				@media screen
+					and ( min-width: $MQ_OLD_TABLET_PORTRAIT + 1 )
+					and ( max-width: $MQ_OLD_TABLET_LANDSCAPE )
+					and ( #{$prefix}device-pixel-ratio: 1 ) {
+						@content;
+				}
+			}
+		} @else if $version == modern {
+			@if $orientation == portrait {
+				@media screen
+					and ( min-width: $MQ_OLD_TABLET_LANDSCAPE + 1 )
+					and ( max-width: $MQ_MODERN_TABLET_PORTRAIT )
+					and ( #{$prefix}device-pixel-ratio: 1.5 ) {
+						@content;
+					}
+			} @else if $orientation == landscape {
+				@media screen
+					and ( min-width: $MQ_MODERN_TABLET_PORTRAIT + 1 )
+					and ( max-width: $MQ_MODERN_TABLET_LANDSCAPE )
+					and ( #{$prefix}device-pixel-ratio: 1.5 ) {
+						@content;
+					}
+			}
+		} @else if $version == any {
+			@if $orientation == portrait {
+				@media screen
+					and ( min-width: $MQ_OLD_MOBILE_LANDSCAPE + 1 )
+					and ( max-width: $MQ_OLD_TABLET_PORTRAIT )
+					and ( #{$prefix}device-pixel-ratio: 1 ) {
+						@content;
+					}
+				@media screen
+					and ( min-width: $MQ_OLD_TABLET_LANDSCAPE + 1 )
+					and ( max-width: $MQ_MODERN_TABLET_PORTRAIT )
+					and ( #{$prefix}device-pixel-ratio: 1.5 ) {
+						@content;
+					}
+			} @else if $orientation == landscape {
+				@media screen
+					and ( min-width: $MQ_OLD_TABLET_PORTRAIT + 1 )
+					and ( max-width: $MQ_OLD_TABLET_LANDSCAPE )
+					and ( #{$prefix}device-pixel-ratio: 1 ) {
+						@content;
+					}
+			@media screen
+				and ( min-width: $MQ_MODERN_TABLET_PORTRAIT + 1 )
+				and ( max-width: $MQ_MODERN_TABLET_LANDSCAPE )
+				and ( #{$prefix}device-pixel-ratio: 1.5 ) {
+					@content;
+				}
+			}
+		}
+	}
+}

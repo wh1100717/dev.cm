@@ -1,0 +1,67 @@
+@charset "UTF-8";
+body {
+  background-image: url(../img/bg-gray.png);
+  color: #333;
+  font-family: Cambria, Georgia, serif;
+  font-size: 15px;
+  margin: 0;
+  overflow-x: hidden;
+  padding: 0;
+}
+
+a {
+  color: #35BFFF;
+  text-decoration: none;
+}
+a:hover, a:active {
+  color: #91DCFF;
+}
+
+.global-header h1 {
+  font-family: 'Donegal One', serif;
+}
+.global-header .masthead {
+  color: #fa3599;
+}
+
+/* pinterest grid
+----------------------------------------*/
+#container {
+  margin: 0 auto 25px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.grid {
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+  float: left;
+  font-size: 12px;
+  margin: 8px;
+  min-height: 100px;
+  padding: 15px;
+  width: 188px;
+  -webkit-transition: top 1s ease, left 1s ease;
+  -moz-transition: top 1s ease, left 1s ease;
+  -o-transition: top 1s ease, left 1s ease;
+  transition: top 1s ease, left 1s ease;
+}
+.grid h2 {
+  border-bottom: 1px solid #ccc;
+  color: #fa3599;
+  display: block;
+  font-family: 'Donegal One', serif;
+  font-size: 17px;
+  margin: 10px 0;
+  padding: 0 0 5px;
+}
+.grid .meta {
+  color: #777;
+  font-style: italic;
+  text-align: right;
+}
+.grid .imgholder img {
+  background: #ccc;
+  display: block;
+  max-width: 100%;
+}

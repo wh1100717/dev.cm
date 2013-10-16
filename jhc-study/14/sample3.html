@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>#3 - private / public | jQuery UI Widget</title>
+<link href='http://fonts.googleapis.com/css?family=Chivo' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="../common/css/common.css">
+<link rel="stylesheet" href="css/captionator.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+<script src="js/jquery.captionator3.js"></script>
+<script>
+$(function() {
+	$('img').captionator({
+		backgroundColor: '#aeee00'
+	});
+
+	$('#getCapParamBtn').click(function(e) {
+		var keys = new Array('width', 'height', 'backgroundColor', 'color'),
+			vals = $('img').captionator('getCaptionAttr', keys),
+			$valueList = $('#valueList');
+		for (var i=0, len=vals.length; i<len; i++) {
+			$valueList.append($('<li/>').text(vals[i]));
+		}
+	});
+});
+</script>
+</head>
+<body>
+	<header class="global-header">
+		<p class="masthead">WAKAMSHA</p>
+		<h1>#3 - private / public | jQuery UI Widget</h1>
+	</header><!-- /header -->
+	<hr />
+
+	<div class="center">
+		<img src="../common/img/myLogo.jpg" height="251" width="251" alt="wakamsha logo." title="本名は山田直樹です。" />
+	</div>
+
+	<div class="center">
+		<a id="getCapParamBtn" class="btn" href="#">Get Caption's params</a>
+	</div>
+
+	<div class="center">
+		<ul id="valueList"></ul>
+	</div>
+</body>
+</html>
+

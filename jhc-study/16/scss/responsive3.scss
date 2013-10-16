@@ -1,0 +1,82 @@
+//
+// Responsive #3
+// --------------------------------------------------
+
+@mixin mediaQueries($maxWidth: 768px) {
+	@media only screen and (max-width: $maxWidth), (max-device-width: $maxWidth) {
+		@content;
+	}
+}
+
+@include mediaQueries(768px) {
+	.table-responsive {
+		thead {
+			tr {
+				th:nth-child(7) {
+					display: none;
+					visibility: hidden;
+				}
+			}
+		}
+		tbody {
+			tr {
+				td:nth-child(7) {
+					display: none;
+					visibility: hidden;
+				}
+			}
+		}
+	}
+}
+
+@include mediaQueries(640px) {
+	.table-responsive {
+		thead {
+			tr {
+				th:nth-child(3),
+				th:nth-child(5),
+				th:nth-child(7) {
+					display: none;
+					visibility: hidden;
+				}
+			}
+		}
+		tbody {
+			tr {
+				td:nth-child(3),
+				td:nth-child(5),
+				td:nth-child(7) {
+					display: none;
+					visibility: hidden;
+				}
+			}
+		}
+	}
+}
+
+@include mediaQueries(480px) {
+	.table-responsive {
+		thead {
+			tr {
+				th:nth-child(3),
+				th:nth-child(5),
+				th:nth-child(6),
+				th:nth-child(7) {
+					display: none;
+					visibility: hidden;
+				}
+			}
+		}
+		tbody {
+			tr {
+				td:nth-child(3),
+				td:nth-child(5),
+				td:nth-child(6),
+				td:nth-child(7) {
+					display: none;
+					visibility: hidden;
+				}
+			}
+		}
+	}
+}

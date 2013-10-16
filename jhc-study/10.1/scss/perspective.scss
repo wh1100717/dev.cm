@@ -1,0 +1,15 @@
+@import "compass";
+@import "3dbasic";
+
+/* box
+----------------------------------------*/
+.square {
+	&.thumbnail {
+		-webkit-transform: perspective(400px) translateZ(50px) rotateY(60deg);
+		   -moz-transform: perspective(400px) translateZ(50px) rotateY(60deg);
+		    -ms-transform: perspective(400px) translateZ(50px) rotateY(60deg);
+		     -o-transform: perspective(400px) translateZ(50px) rotateY(60deg);
+		        transform: perspective(400px) translateZ(50px) rotateY(60deg);
+	}
+}
+

@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Art colors #0 | jHC Study</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1,user-scalable=no,initial-scale=1.0">
+<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/dev.cm/jhc-study/common//css/jhc-study.css">
+<style>
+.preview {
+	height: 100px;
+	width: 100px;
+}
+</style>
+<!--[if lte IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"><![endif]-->
+</head>
+<body>
+	<header class="global-header clearfix">
+		<div class="masthead">
+			<h5 class="brand">jHC Study</h5>
+			<h1 class="contents-title">Art colors <small>#0</small></h1>
+		</div>
+		<div class="author-container">
+			<div class="author-image">
+				<img src="/dev.cm/jhc-study/common/img/myLogo.jpg">
+			</div>
+			<div class="author-description">
+				<p class="author-name">WAKAMSHA</p>
+				<p class="author-summary">Front-end developer</p>
+			</div>
+		</div>
+	</header>
+
+
+	<div class="container">
+
+		<canvas id="panel1" width="502" height="502"></canvas>
+
+		<div id="preview" class="preview"></div>
+		<dl id="colorCode">
+			<dt>R:</dt><dd id="colorR"></dd>
+			<dt>G:</dt><dd id="colorG"></dd>
+			<dt>B:</dt><dd id="colorB"></dd>
+			<dt>RGB:</dt><dd id="colorRGB"></dd>
+			<dt>RGBA:</dt><dd id="colorRGBA"></dd>
+			<dt>HEX:</dt><dd id="colorHEX"></dd>
+		</dl>
+		<!-- <img class="art-image" src="../../common/img/myLogo.jpg" height="502" width="502" alt=""> -->
+
+	</div>
+
+	<footer class="global-footer">
+		<small>&copy; 2013 WAKAMSHA.</small>
+	</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+var canvas,
+	context;
+
+canvas = document.getElementById('panel1');
+context = canvas.getContext('2d');
+
+var image = new Image();
+image.src = 'img/img3.jpg';
+image.onload = function() {
+	context.drawImage(image, 0, 0, image.width, image.height);
+};
+
+$('#panel1').mousemove(function(e) {
+	var canvasOffset = $(canvas).offset(),
+		canvasX = Math.floor(e.pageX - canvasOffset.left),
+		canvasY = Math.floor(e.pageY - canvasOffset.top),
+
+		imageData = context.getImageData(canvasX, canvasY, 1, 1),
+		pixel = imageData.data,
+
+		pixelColor = 'rgba(' + pixel[0] + ',' + pixel[1] + ',' + pixel[2] + ',' + pixel[3] + ')',
+		colorHEX = pixel[0].toString(16) + pixel[1].toString(16) + pixel[2].toString(16);
+
+		$('#preview').css({backgroundColor: pixelColor});
+		$('#colorR').text(pixel[0]);
+		$('#colorG').text(pixel[1]);
+		$('#colorB').text(pixel[2]);
+		$('#colorRGB').text(pixel[0] + ', ' + pixel[1] + ', ' + pixel[2]);
+		$('#colorRGBA').text(pixel[0] + ', ' + pixel[1] + ', ' + pixel[2] + ', ' + pixel[3]);
+		$('#colorHEX').text(colorHEX);
+});
+
+</script>
+</body>
+</html>

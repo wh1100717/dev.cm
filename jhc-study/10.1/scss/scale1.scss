@@ -1,0 +1,8 @@
+@import "compass";
+@import "3dbasic";
+
+.square {
+	&.thumbnail {
+		@include scale3d(1,1,5);
+	}
+}

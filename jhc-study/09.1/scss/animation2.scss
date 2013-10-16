@@ -1,0 +1,44 @@
+@import "compass";
+@import "animation";
+
+li {
+	color: #fff;
+	height: 72px;
+	font-size: 90%;
+	line-height: 72px;
+	margin-bottom: 20px;
+	padding: 8px;
+	width: 72px;
+
+	&:hover {
+		@include setAnimation(expand, 1s, ease, 2s);
+		box-shadow: 0 20px 40px #888888;
+	}
+}
+
+.none {
+	background: #333;
+}
+.forwards {
+	background: #ff358B;
+	&:hover {
+		@include animation-fill-mode(forwards);
+	}
+}
+.backwards {
+	background: #01b0f0;
+	&:hover {
+		@include animation-fill-mode(backwards);
+	}
+}
+.both {
+	background: #aeee00;
+	&:hover {
+		@include animation-fill-mode(both);
+	}
+}
+
+@include keyframes(expand) {
+	0%   { border-radius: 44px; }
+	100% { width: 720px; }
+}

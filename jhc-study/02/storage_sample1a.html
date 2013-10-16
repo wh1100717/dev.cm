@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Web Storage Sample</title>
+		<script type="text/javascript">
+			function saveStorage(id) {
+				var target = document.getElementById(id);
+				var str = target.value;
+				localStorage.setItem("message", str);
+			}
+
+			function loadStorage(id) {
+				var target = document.getElementById(id);
+				var msg = localStorage.getItem("message");
+				target.innerHTML = msg;
+			}
+		</script>
+		<!--[if IE]><script type="text/javascript" src="/common/js/ie.js"></script><![endif]-->
+	</head>
+	<body>
+		<h1>Web Storage Sample</h1>
+		<p id="msg"></p>
+		<input type="text" id="input" />
+		<input type="button" value="保存" onclick="saveStorage('input')" />
+		<input type="button" value="読み込み" onclick="loadStorage('msg')" />
+	</body>
+</html>

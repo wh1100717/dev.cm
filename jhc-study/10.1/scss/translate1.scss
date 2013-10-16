@@ -1,0 +1,39 @@
+@import "compass";
+
+$SIZE: 150px;
+ul {
+	width: 730px;
+	margin: 60px auto;
+	padding: 0;
+}
+li {
+	border-radius:50%;
+	color: #fff;
+	display: inline-block;
+	height: $SIZE;
+	line-height: $SIZE;
+	margin:30px;
+	padding: 15px;
+	text-align: center;
+	width: $SIZE;
+	@include transition(1s);
+}
+
+.t1 {
+	background: #01b0f0;
+	&:hover {
+		@include translate(400px);
+	}
+}
+.t2 {
+	background: #ff3588;
+	&:hover {
+		@include translate(100px, 400px);
+	}
+}
+.t3 {
+	background: #aeee00;
+	&:hover {
+		@include translate(-400px, -100px);
+	}
+}

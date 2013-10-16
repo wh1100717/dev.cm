@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Slideshow sample</title>
+<link rel="stylesheet" href="css/eventdriven.css"  />
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script src="js/jquery.slideshow.js"></script>
+<script>
+$(function() {
+
+	var $image = $('#slideshow');
+
+	$image.slideshow({
+		images: ['img/jhc_less1.png', 'img/jhc_selector.png', 'img/parallax.png'],
+		interval: 3000
+	});
+
+	$('#prev').click(function(event) {
+		event.preventDefault();
+		$image.trigger('prev');
+	});
+
+	$('#next').click(function(event) {
+		event.preventDefault();
+		$image.trigger('next');
+	});
+
+	$image.trigger('goto', 0);
+	$image.trigger('start');
+
+});
+</script>
+</head>
+<body>
+	<div>
+		<h1>Event-driven Plugin</h1>
+		<p>jQuery samples</p>
+		<ul>
+			<li><a id="prev" href="#">prev</a></li>
+			<li><img id="slideshow" /></li>
+			<li><a id="next" href="#">next</a></li>
+		</ul>
+	</div>
+
+</body>
+</html>
