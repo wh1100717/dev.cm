@@ -178,3 +178,10 @@ config.rb
 
 # sass cache
 .sass-cache/
+
+
+############
+## Middleman
+############
+
+middleman/vender/
