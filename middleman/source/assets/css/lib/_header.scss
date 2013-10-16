@@ -1,0 +1,112 @@
+//
+// Header
+// --------------------------------------------------
+
+// Global header
+// ----------
+.global-header {
+	margin: 10px 20px 30px;
+}
+
+// masthead
+// ----------
+.masthead {
+	float: left;
+
+	.brand,
+	.contents-title {
+		font-family: $font-family-web;
+	}
+
+	.brand {
+		font-size: $font-size-large;
+		margin: 0;
+	}
+	.contents-title {
+		color: $brand-primary;
+		font-size: $font-size-base * 3;
+		line-height: $line-height-base * 3 - 8;
+		margin: 0;
+		small {
+			color: $gray-light;
+			font-size: 70%;
+		}
+	}
+}
+
+
+// Author
+// ----------
+.author-container {
+	float: right;
+
+	// Author image
+	.author-image {
+		border-radius: 50%;
+		float: left;
+		height: auto;
+		position: relative;
+		&:before,
+		&:after {
+			border: $author-image-basic-border-tick solid $gray-lighter;
+			border-radius: 50%;
+			content: "";
+			display: block;
+			height: $author-image-size;
+			position: absolute;
+			width: $author-image-size;
+			z-index: -1;
+		}
+		&:before {
+			left: $author-image-basic-padding * -1;
+			top: $author-image-basic-padding * -1;
+			height: $author-image-size + ($author-image-basic-padding * 2);
+			width: $author-image-size + ($author-image-basic-padding * 2);
+		}
+		&:after {
+			left: $author-image-basic-padding * -2;
+			top: $author-image-basic-padding * -2;
+			height: $author-image-size + ($author-image-basic-padding * 4);
+			width: $author-image-size + ($author-image-basic-padding * 4);
+		}
+		img {
+			border-radius: 50%;
+			height: $author-image-size;
+			width: $author-image-size;
+		}
+	}
+
+	// Author description
+	.author-description {
+		margin: $author-image-basic-padding 0 0 $author-description-margin;
+		p {
+			margin: 0;
+		}
+		.author-name {
+			font-size: $font-size-base + 2;
+			line-height: $line-height-base;
+		}
+		.author-summary {
+			color: adjust-lightness($brand-success, -5);
+			font-size: $font-size-base;
+			padding: 0 4px;
+		}
+		.author-links {
+			list-style: none;
+			margin: 0;
+			li {
+				float: left;
+				overflow: hidden;
+				height: 16px;
+				padding: 2px 5px 3px;
+				width: 16px;
+				a {
+					display: block;
+					overflow: hidden;
+					height: 16px;
+					width: 16px;
+				}
+			}
+		}
+	}
+}

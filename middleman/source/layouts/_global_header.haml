@@ -1,0 +1,21 @@
+%header.global-header.navbar
+	.row
+		.col-sm-6
+			.masthead
+				%h5.brand jHC Study
+				%h1.contents-title<
+					%span= title
+					%small= sub_title
+		.col-sm-6.hidden-xs
+			.author-container
+				.author-image
+					= image_tag 'myLogo.jpg'
+				.author-description
+					%p.author-name WAKAMSHA
+					%p.author-summary Front-end developer
+					-#
+						%ul.author-links
+							%li<
+								= link_to 'wakamsha', '#', title: 'facebook', class: 'facebook'
+							%li<
+								= link_to '@wakamsha', '#', title: 'twitter', class: 'twitter'
