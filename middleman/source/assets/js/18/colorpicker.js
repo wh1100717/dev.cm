@@ -1,6 +1,6 @@
 (function() {
 
-	var src = 'img3.jpg';
+	var src = 'img1.jpg';
 
 	var canvas = document.getElementById('panel'),
 		context = canvas.getContext('2d');
@@ -20,12 +20,7 @@
 		input_b = $('#color_b'),
 		input_hex = $('#color_hex');
 
-	// セロ埋めして二桁の文字列を返します
-	var fillZero = function(i) {
-		return ("0" + i.toString(16)).substr(-2);
-	};
-
-
+	
 	// 画像要素を生成します
 	image.src = src;
 	image.onload = function() {
@@ -44,6 +39,7 @@
 		rgba = 'rgba(' + pixel[0] + ',' + pixel[1] + ',' + pixel[2] + ',' + pixel[3] + ')';
 		hex = fillZero(pixel[0]) + fillZero(pixel[1]) + fillZero(pixel[2]);
 
+		// 取得した色情報を画面側に渡します
 		preview.css({backgroundColor: rgba});
 		input_r.val(pixel[0]);
 		input_g.val(pixel[1]);

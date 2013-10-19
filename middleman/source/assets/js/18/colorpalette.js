@@ -1,6 +1,6 @@
 (function() {
 
-	var src = 'img3.jpg';
+	var src = 'img1.jpg';
 	var canvas = document.getElementById('panel'),
 		context = canvas.getContext('2d');
 
@@ -105,7 +105,7 @@
 		for (var i=0, len=colors.length; i<len; i++) {
 			var col = colors[i];
 			html += '<tr><th style="background:' + 'rgb(' + col.r + ',' + col.g + ',' + col.b + ')' + '"></th>';
-			html += '<td>#' + col.r.toString(16) + col.g.toString(16) + col.b.toString(16) + '</td></tr>';
+			html += '<td>#' + fillZero(col.r) + fillZero(col.g) + fillZero(col.b) + '</td></tr>';
 		}
 		palette.innerHTML = html;
 	};

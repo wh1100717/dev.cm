@@ -9,7 +9,9 @@
 
 		imageData = context.getImageData(0, 0, w, h);
 
+	// 横方向のループ処理
 	for (var x=0; x<w; x++) {
+		//  縦方向のループ処理
 		for (var y=0; y<h; y++) {
 			var targetPixel = (x + y * w) * 4;
 			imageData.data[targetPixel + 0] = x;
