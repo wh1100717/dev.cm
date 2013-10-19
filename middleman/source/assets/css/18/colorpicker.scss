@@ -1,5 +1,9 @@
-#panel {
+canvas {
 	max-width: 100%;
+
+	&:hover {
+		cursor: crosshair;
+	}
 }
 
 .preview {
