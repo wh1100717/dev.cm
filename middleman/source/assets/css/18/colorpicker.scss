@@ -1,0 +1,13 @@
+canvas {
+	max-width: 100%;
+
+	&:hover {
+		cursor: crosshair;
+	}
+}
+
+.preview {
+	border: 2px solid #e61376;
+	height: 120px;
+	margin-bottom: 10px;
+}

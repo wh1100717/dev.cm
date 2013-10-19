@@ -1,0 +1,60 @@
+//
+// Responsive #4
+// --------------------------------------------------
+
+$wakaColor1: #e61376;
+$tableBorderColor: adjust-lightness(#999, 20);
+
+@mixin mediaQueries($maxWidth: 768px) {
+	@media only screen and (max-width: $maxWidth), (max-device-width: $maxWidth) {
+		@content;
+	}
+}
+
+
+@include mediaQueries(640px) {
+	.table-responsive {
+		display: block;
+		position: relative;
+		thead,
+		tbody,
+		th,
+		td,
+		tr {
+			display: block;
+		}
+		thead {
+			float: left;
+			tr {
+				border: 1px solid #fdfdfd;
+				th,
+				td {
+					border-bottom-color: $wakaColor1;
+					border-right-color: $wakaColor1;
+					border-bottom-width: 1px;
+					line-height: 20px;
+					padding: 4px 10px;
+					&:last-child {
+						border-right-color: $wakaColor1;
+					}
+				}
+			}
+		}
+		tbody {
+			overflow-x: auto;
+			position: relative;
+			white-space: nowrap;
+			width: auto;
+			tr {
+				display: inline-block;
+				vertical-align: top;
+				td {
+					line-height: 20px;
+					&:first-child {
+						text-align: right;
+					}
+				}
+			}
+		}
+	}
+}

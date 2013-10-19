@@ -1,0 +1,37 @@
+@media only screen and (max-width: 768px), (max-device-width: 768px) {
+  /* line 15, /Users/wakamsha/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive3.scss */
+  .table-responsive thead tr th:nth-child(7) {
+    display: none;
+    visibility: hidden; }
+  /* line 23, /Users/wakamsha/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive3.scss */
+  .table-responsive tbody tr td:nth-child(7) {
+    display: none;
+    visibility: hidden; } }
+@media only screen and (max-width: 640px), (max-device-width: 640px) {
+  /* line 38, /Users/wakamsha/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive3.scss */
+  .table-responsive thead tr th:nth-child(3),
+  .table-responsive thead tr th:nth-child(5),
+  .table-responsive thead tr th:nth-child(7) {
+    display: none;
+    visibility: hidden; }
+  /* line 48, /Users/wakamsha/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive3.scss */
+  .table-responsive tbody tr td:nth-child(3),
+  .table-responsive tbody tr td:nth-child(5),
+  .table-responsive tbody tr td:nth-child(7) {
+    display: none;
+    visibility: hidden; } }
+@media only screen and (max-width: 480px), (max-device-width: 480px) {
+  /* line 64, /Users/wakamsha/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive3.scss */
+  .table-responsive thead tr th:nth-child(3),
+  .table-responsive thead tr th:nth-child(5),
+  .table-responsive thead tr th:nth-child(6),
+  .table-responsive thead tr th:nth-child(7) {
+    display: none;
+    visibility: hidden; }
+  /* line 75, /Users/wakamsha/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive3.scss */
+  .table-responsive tbody tr td:nth-child(3),
+  .table-responsive tbody tr td:nth-child(5),
+  .table-responsive tbody tr td:nth-child(6),
+  .table-responsive tbody tr td:nth-child(7) {
+    display: none;
+    visibility: hidden; } }

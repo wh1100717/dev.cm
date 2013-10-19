@@ -179,12 +179,10 @@ config.rb
 # sass cache
 .sass-cache/
 
-# scss in gh-pages
-scss/
-
 
 ############
 ## Middleman
 ############
 
 middleman/
+
