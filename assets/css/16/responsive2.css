@@ -1,0 +1,30 @@
+@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+  /* line 17, /Users/wakamsha/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive2.scss */
+  .table-responsive,
+  tbody,
+  th,
+  tr,
+  tr {
+    display: block; }
+
+  /* line 21, /Users/wakamsha/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive2.scss */
+  .table-responsive thead {
+    display: none; }
+  /* line 26, /Users/wakamsha/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive2.scss */
+  .table-responsive tbody tr + tr {
+    margin-top: 20px; }
+  /* line 30, /Users/wakamsha/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive2.scss */
+  .table-responsive tbody tr th,
+  .table-responsive tbody tr td {
+    border: none; }
+  /* line 33, /Users/wakamsha/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive2.scss */
+  .table-responsive tbody tr th {
+    font-size: 240%;
+    line-height: 1em; }
+  /* line 37, /Users/wakamsha/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive2.scss */
+  .table-responsive tbody tr td {
+    display: list-item;
+    list-style-type: square;
+    margin-left: 3em;
+    padding-left: 0;
+    text-align: left; } }

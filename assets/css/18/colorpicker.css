@@ -1,0 +1,12 @@
+/* line 1, /Users/wakamsha/Documents/workspace/dev.cm/middleman/source/assets/css/18/colorpicker.scss */
+canvas {
+  max-width: 100%; }
+  /* line 4, /Users/wakamsha/Documents/workspace/dev.cm/middleman/source/assets/css/18/colorpicker.scss */
+  canvas:hover {
+    cursor: crosshair; }
+
+/* line 9, /Users/wakamsha/Documents/workspace/dev.cm/middleman/source/assets/css/18/colorpicker.scss */
+.preview {
+  border: 2px solid #e61376;
+  height: 120px;
+  margin-bottom: 10px; }

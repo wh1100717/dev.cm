@@ -185,3 +185,4 @@ config.rb
 ############
 
 middleman/vendor/
+middleman/build/
