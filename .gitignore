@@ -181,3 +181,10 @@ config.rb
 
 # scss in gh-pages
 scss/
+
+
+############
+## Middleman
+############
+
+middleman/
