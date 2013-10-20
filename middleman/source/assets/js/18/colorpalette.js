@@ -1,28 +1,33 @@
 (function() {
 
-	var src = 'img1.jpg';
+	// var src = 'img1.jpg';
+	var src = 'img-sample.png';
 	var canvas = document.getElementById('panel'),
 		context = canvas.getContext('2d');
 
 	var image = new Image();
 
-	var delta = 50;	// RGB値の差分のしきい値
+	var DELTA = 50,	// RGB値の差分のしきい値
+		RATIO = 19;	// 画像の分割比
 
 
+	// セルの平均色を算出します
 	var averageColorFor = function(data) {
 		var result = [],
-			totalPixels = data.length / 4;
+			totalPixels = data.length / 4;	// セルあたりのピクセル数
 
 		result.r = 0;
 		result.g = 0;
 		result.b = 0;
 
+		// セル内の各ピクセルのRGB値の合計値を出します
 		for (var i=0; i<=totalPixels; i+=4) {
 			result.r += data[i];
 			result.g += data[i + 1];
 			result.b += data[i + 2];
 		}
 
+		// RGBそれぞれの値をセルあたりのピクセル数で割ることで、平均色値を算出します
 		result.r = Math.round(result.r / totalPixels) * 4;
 		result.r = (result.r > 255) ? 255 : result.r;
 		result.g = Math.round(result.g / totalPixels) * 4;
@@ -35,12 +40,12 @@
 
 
 	// 隣接するピクセル同士の色情報を比較します
-	// RGB値のそれぞれの絶対差が delta（しきい値）以下の場合は類似色と判定します
+	// RGB値のそれぞれの絶対差が DELTA（しきい値）以下の場合は類似色と判定します
 	var areSimilarColors = function(color1, color2) {
 		if (
-			(Math.abs(color1.r - color2.r) <= delta) &&
-			(Math.abs(color1.g - color2.g) <= delta) &&
-			(Math.abs(color1.b - color2.b) <= delta)
+			(Math.abs(color1.r - color2.r) <= DELTA) &&
+			(Math.abs(color1.g - color2.g) <= DELTA) &&
+			(Math.abs(color1.b - color2.b) <= DELTA)
 			) {
 			return true;
 		} else {
@@ -61,13 +66,13 @@
 
 
 	// カラーパレットとなるユニークな色情報を取得します
-	// 画像をタテ・ヨコ20分割し、分割したセルの平均色情報を取得します
-	// 平均色情報同士を比較してユニークないろ情報だけを取得します
+	// 画像をタテ・ヨコ均等に分割し、分割したセルの平均色情報を取得します
+	// 平均色情報同士を比較してユニークな色情報だけを取得します
 	var getUniqueColors = function() {
 		var averageColors = [],
 			uniqueColors = [],
-			rows = 20,
-			cells = 20,
+			rows = RATIO,
+			cells = RATIO,
 			cellWidth = (canvas.width / cells) >> 0,
 			cellHeight = (canvas.height / rows) >> 0;
 
