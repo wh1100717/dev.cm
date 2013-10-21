@@ -1,20 +1,19 @@
 (function() {
 
-	// var src = 'img1.jpg';
-	var src = 'img-sample.png';
+	var src = 'img1.jpg';
 	var canvas = document.getElementById('panel'),
 		context = canvas.getContext('2d');
 
 	var image = new Image();
 
-	var DELTA = 50,	// RGB値の差分のしきい値
-		RATIO = 19;	// 画像の分割比
+	var DELTA = 50; // RGB値の差分のしきい値
+	var RATIO = 20; // 画像の分割比
 
 
 	// セルの平均色を算出します
 	var averageColorFor = function(data) {
 		var result = [],
-			totalPixels = data.length / 4;	// セルあたりのピクセル数
+			totalPixels = data.length / 4;  // セルあたりのピクセル数
 
 		result.r = 0;
 		result.g = 0;
@@ -28,11 +27,18 @@
 		}
 
 		// RGBそれぞれの値をセルあたりのピクセル数で割ることで、平均色値を算出します
-		result.r = Math.round(result.r / totalPixels) * 4;
+	// Math関数 - 処理が重い
+		// result.r = Math.round(result.r / totalPixels) * 4;
+		// result.r = (result.r > 255) ? 255 : result.r;
+		// result.g = Math.round(result.g / totalPixels) * 4;
+		// result.g = (result.g > 255) ? 255 : result.g;
+		// result.b = Math.round(result.b / totalPixels) * 4;
+		// result.b = (result.b > 255) ? 255 : result.b;
+		result.r = ((result.r / totalPixels + 0.5) | 0) * 4;
 		result.r = (result.r > 255) ? 255 : result.r;
-		result.g = Math.round(result.g / totalPixels) * 4;
+		result.g = ((result.g / totalPixels + 0.5) | 0) * 4;
 		result.g = (result.g > 255) ? 255 : result.g;
-		result.b = Math.round(result.b / totalPixels) * 4;
+		result.b = ((result.b / totalPixels + 0.5) | 0) * 4;
 		result.b = (result.b > 255) ? 255 : result.b;
 
 		return result;
@@ -57,9 +63,14 @@
 	// 隣接するピクセル同士の色の平均値を取得します
 	var getAverageColor = function(color1, color2) {
 		var averageColor = [];
-		averageColor.r = Math.round((color1.r + color2.r) / 2);
-		averageColor.g = Math.round((color1.g + color2.g) / 2);
-		averageColor.b = Math.round((color1.b + color2.b) / 2);
+	// Math関数 - 処理が重い
+		// averageColor.r = Math.round((color1.r + color2.r) / 2);
+		// averageColor.g = Math.round((color1.g + color2.g) / 2);
+		// averageColor.b = Math.round((color1.b + color2.b) / 2);
+
+		averageColor.r = (((color1.r + color2.r) / 2) + 0.5) | 0;
+		averageColor.g = (((color1.g + color2.g) / 2) + 0.5) | 0;
+		averageColor.b = (((color1.b + color2.b) / 2) + 0.5) | 0;
 
 		return averageColor;
 	};
@@ -73,8 +84,8 @@
 			uniqueColors = [],
 			rows = RATIO,
 			cells = RATIO,
-			cellWidth = (canvas.width / cells) >> 0,
-			cellHeight = (canvas.height / rows) >> 0;
+			cellWidth = (canvas.width / cells) | 0,  // 小数点以下切り捨て - Math.floor()より高速
+			cellHeight = (canvas.height / rows) | 0;
 
 		for (var i=0; i<rows; i++) {
 			for (var j=0; j<cells; j++) {
