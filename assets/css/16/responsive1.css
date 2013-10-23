@@ -1,25 +1,25 @@
 @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
-  /* line 17, /Users/wakamsha/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive1.scss */
+  /* line 17, /Users/yamadanaoki/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive1.scss */
   .table-responsive thead,
   .table-responsive tbody,
   .table-responsive th,
   .table-responsive td,
   .table-responsive tr {
     display: block; }
-  /* line 20, /Users/wakamsha/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive1.scss */
+  /* line 20, /Users/yamadanaoki/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive1.scss */
   .table-responsive thead {
     display: none; }
-  /* line 24, /Users/wakamsha/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive1.scss */
+  /* line 24, /Users/yamadanaoki/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive1.scss */
   .table-responsive tbody tr {
     border-top: 1px solid #ccc; }
-    /* line 26, /Users/wakamsha/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive1.scss */
+    /* line 26, /Users/yamadanaoki/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive1.scss */
     .table-responsive tbody tr td {
       border: none;
       border-bottom: 1px solid #eee;
       position: relative;
       padding-left: 50%;
       text-align: left; }
-      /* line 32, /Users/wakamsha/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive1.scss */
+      /* line 32, /Users/yamadanaoki/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive1.scss */
       .table-responsive tbody tr td:before {
         color: #555;
         position: absolute;
@@ -28,24 +28,24 @@
         width: 45%;
         padding-right: 10px;
         white-space: nowrap; }
-      /* line 41, /Users/wakamsha/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive1.scss */
+      /* line 41, /Users/yamadanaoki/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive1.scss */
       .table-responsive tbody tr td:nth-of-type(1):before {
         content: "First Name"; }
-      /* line 44, /Users/wakamsha/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive1.scss */
+      /* line 44, /Users/yamadanaoki/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive1.scss */
       .table-responsive tbody tr td:nth-of-type(2):before {
         content: "Last Name"; }
-      /* line 47, /Users/wakamsha/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive1.scss */
+      /* line 47, /Users/yamadanaoki/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive1.scss */
       .table-responsive tbody tr td:nth-of-type(3):before {
         content: "Age"; }
-      /* line 50, /Users/wakamsha/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive1.scss */
+      /* line 50, /Users/yamadanaoki/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive1.scss */
       .table-responsive tbody tr td:nth-of-type(4):before {
         content: "Total"; }
-      /* line 53, /Users/wakamsha/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive1.scss */
+      /* line 53, /Users/yamadanaoki/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive1.scss */
       .table-responsive tbody tr td:nth-of-type(5):before {
         content: "Discount"; }
-      /* line 56, /Users/wakamsha/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive1.scss */
+      /* line 56, /Users/yamadanaoki/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive1.scss */
       .table-responsive tbody tr td:nth-of-type(6):before {
         content: "Difference"; }
-      /* line 59, /Users/wakamsha/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive1.scss */
+      /* line 59, /Users/yamadanaoki/Documents/workspace/dev.cm/middleman/source/assets/css/16/responsive1.scss */
       .table-responsive tbody tr td:nth-of-type(7):before {
         content: "Date"; } }
