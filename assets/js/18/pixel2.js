@@ -11,9 +11,9 @@
 	for (var x=0; x<w; x++) {
 		for (var y=0; y<h; y++) {
 			var targetPixel = (x + y * w) * 4;
-			imageData.data[targetPixel + 0] = x       & -(0xF0/8);
-			imageData.data[targetPixel + 1] = y       & -(0xF0/8);
-			imageData.data[targetPixel + 2] = (x + y) & -(0xF0/4);
+			imageData.data[targetPixel + 0] = x       & -(0xF0);
+			imageData.data[targetPixel + 1] = y       & -(0xF0);
+			imageData.data[targetPixel + 2] = (x + y) & -(0xF0);
 			imageData.data[targetPixel + 3] = 255;
 		}
 	}
