@@ -1,14 +1,45 @@
 ---
 title: Local Storage Sample
+css: 02/ls
 js:
   - 02/ls
 ---
 
 %nav.navbar.navbar-default{role: 'navigation'}
-	- form_tag '#', class: 'navbar-form' do
-		.form-group
-			= text_field_tag 'name', id: 'name', class: 'form-control', placeholder: 'name'
-		.form-group
-			= email_field_tag 'email', id: 'email', class: 'form-control', placeholder: 'E-mail'
-		= submit_tag 'Regist', class: 'btn btn-default'
-	
+	.container
+		- form_tag '#', id: 'memberRegist', class: 'navbar-form' do
+			.form-group
+				= text_field_tag 'name', id: 'name', class: 'form-control', placeholder: 'name'
+			.form-group
+				= email_field_tag 'email', id: 'email', class: 'form-control', placeholder: 'E-mail'
+			= submit_tag 'Regist', class: 'btn btn-default'
+
+.container
+	.row
+		.col-sm-12
+			.row
+				.col-sm-8
+					%h3.content-title<
+						Member list
+						%small LocalStorage Sample
+				.col-sm-4.header-controls
+					%button#reload.btn.btn-link{title: 'Reload'}<
+						%span.glyphicon.glyphicon-repeat
+					%button#clear.btn.btn-link{title: 'Clear All Data'}<
+						%span.glyphicon.glyphicon-ok-circle
+				
+			%hr
+				
+			%table#list.table.table-striped
+				%thead
+					%tr
+						%th Name
+						%th E-mail
+						%th Datetime
+						%th
+				%tbody
+					%tr
+						%td hoge
+						%td yamada naoki
+						%td yamada.naoki@classmethod.jp
+						%td foo

@@ -51,6 +51,8 @@ set :js_dir, 'assets/js'
 
 set :images_dir, 'assets/img'
 
+set :font_dir, 'assets/fonts'
+
 set :relative_links, true
 
 # Build-specific configuration
