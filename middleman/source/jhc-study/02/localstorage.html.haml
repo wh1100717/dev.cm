@@ -9,9 +9,9 @@ js:
 	.container
 		- form_tag '#', id: 'memberRegist', class: 'navbar-form' do
 			.form-group
-				= text_field_tag 'name', id: 'name', class: 'form-control', placeholder: 'name'
+				= text_field_tag 'name', id: 'name', class: 'form-control', placeholder: 'name', required: true
 			.form-group
-				= email_field_tag 'email', id: 'email', class: 'form-control', placeholder: 'E-mail'
+				= email_field_tag 'email', id: 'email', class: 'form-control', placeholder: 'E-mail', required: true
 			= submit_tag 'Regist', class: 'btn btn-default'
 
 .container

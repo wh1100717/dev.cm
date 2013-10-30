@@ -4,6 +4,7 @@
 	var loadStorage = function() {
 		$('#list').find('tbody').empty();
 		var rec = '';
+
 		for (var i=0; i<localStorage.length; i++) {
 			var key = localStorage.key(i);	//keyを取得
 			var value = localStorage.getItem(key);	//keyからJSON文字列を取得
@@ -15,6 +16,8 @@
 			} catch (event) {
 				continue;
 			}
+
+			if ((data.name === void 0) || (data.email === void 0)) continue;
 
 			var date = new Date();
 			date.setTime(key);
@@ -43,16 +46,18 @@
 	// 登録ボタンクリック
 	$('#memberRegist').on('submit', function(e) {
 		e.preventDefault();
-		var time = new Date().getTime(),
-			data = {};
+		var time = new Date().getTime();
+		var data = {};
+		data.time = new Date().getTime();
 		data.name = $('#name').val();
+		data.email = $('#email').val();
 		if (!data.name) {
 			return false;
 		}
-		data.email = $('#email').val();
 		if (!data.email) {
 			return false;
 		}
+
 		var str = JSON.stringify(data);
 		//ローカルストレージ
 		localStorage.setItem(time, str);
