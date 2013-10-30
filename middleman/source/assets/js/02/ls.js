@@ -46,7 +46,13 @@
 		var time = new Date().getTime(),
 			data = {};
 		data.name = $('#name').val();
+		if (!data.name) {
+			return false;
+		}
 		data.email = $('#email').val();
+		if (!data.email) {
+			return false;
+		}
 		var str = JSON.stringify(data);
 		//ローカルストレージ
 		localStorage.setItem(time, str);
