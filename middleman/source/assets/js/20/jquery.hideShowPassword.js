@@ -137,7 +137,8 @@
           this.element.prop(key, value);
         }, this));
         this.element.addClass(state.inputClass).trigger(state.eventName);
-      }, this), $.proxy(function (state) {
+      }, this),
+      $.proxy(function (state) {
         this.element.removeClass(state.inputClass);
       }, this));
     },

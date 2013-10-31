@@ -6,9 +6,43 @@
 	};
 
 	TogglePasswordVisible.prototype = {
+		// デフォルトオプション
+		defaults: {
+			show: false,
+			toggleEvent: 'click',
+			states: {
+				shown: {
+					attr: {
+						type: 'text',
+						autocapitalize: 'off',
+						autocomplete: 'off',
+						autocorrect: 'off',
+						spellcheck: false
+					}
+				},
+				hidden: {
+					attr: {
+						type: 'password'
+					}
+				}
+			}
+		},
+		
 		init: function(opts) {
-			console.log('ok');
-			this.initInnerToggle(this.element, opts);
+			console.log('init');
+			this.update(opts);
+			// this.initInnerToggle(this.element, opts);
+		},
+
+		update: function(opts, optsBase) {
+			optsBase = optsBase || this.opts;
+			if (typeof opts !== 'Object') {
+				opts = {show: opts};
+			}
+			// オプションをマージ
+			this.opts = $.extend({}, optsBase, opts);
+			
+			console.log(opts);
 		},
 
 		initInnerToggle: function(el, opts) {
@@ -32,11 +66,9 @@
 
 			toggle.appendTo(wrapper);
 
-			toggle.on(opts.toggleEvent, function() {
-				console.log('toggled');
-				var currentState = el.attr('type') == 'password' ? 'text' : 'password';
-				el.attr('type', currentState);
-			});
+			toggle.on(opts.toggleEvent, $.proxy(function(event) {
+				this.update('toggle');
+			}, this));
 		},
 
 		updateInnerToggle: function(el, current) {
@@ -49,23 +81,14 @@
 		// 要素を退避
 		var elements = this;
 
-		// オプションをマージ
-		var opts = $.extend({}, $.fn.togglePasswordVisible.defaults, options);
-
 		// 要素を1つずつ処理
 		elements.each(function() {
-			new TogglePasswordVisible(this, opts);
+			new TogglePasswordVisible(this, options);
 		});
 
 		// method chain用に要素を返す
 		return this;
 	};
-
-	// デフォルトオプション
-	$.fn.togglePasswordVisible.defaults = {
-		toggleEvent: 'click'
-	};
-
 
 	// Example 1
 	// $('#password').hideShowPassword({
