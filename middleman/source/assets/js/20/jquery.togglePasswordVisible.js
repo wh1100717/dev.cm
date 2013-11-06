@@ -4,6 +4,8 @@
 	var defaults = {
 		show: 'unclear',
 		toggleEvent: 'click',
+		touchSupport: false,
+		toggleTouchEvent: 'touchstart mousedown',
 		states: {
 			shown: {
 				eventName: 'passwordShown',
@@ -13,6 +15,7 @@
 					type: 'text',
 					autocapitalize: 'off',
 					autocomplete: 'off',
+					autocorrect: 'off',
 					spellcheck: false
 				}
 			},
@@ -37,12 +40,14 @@
 		init: function(options) {
 			this.update(options, defaults, (this.element.attr('type') === 'password'));
 			this.initInnerToggle(this.element, this.options);
+
+			this.disableDoubleByteChar(this.element);
 		},
 
 		update: function(options, optionsBase, toggleFallback) {
 			optionsBase = optionsBase || this.options;
 			toggleFallback = toggleFallback || !this.options.show;
-			if (typeof options !== 'Object') {
+			if (typeof options !== 'object') {
 				options = {show: options};
 			}
 			// オプションをマージ
@@ -57,7 +62,6 @@
 
 			// 状態を適用する
 			var currentKey = this.currentStateKey();
-
 			$.each(this.options.states, $.proxy(function(key, state) {
 				if (currentKey === key) {
 					$.each(state.attr, $.proxy(function(key, value){
@@ -74,6 +78,7 @@
 			return this.options.show ? 'shown' : 'hidden';
 		},
 
+		// トグルボタン初期化処理
 		initInnerToggle: function(element, options) {
 			var wrapper,
 				toggle,
@@ -82,30 +87,45 @@
 				},
 				toggleCSS = {
 					position: 'absolute',
-					top: 0,
+					top: '1px',
 					right: 0,
-					bottom: 0,
-					width: '30px',
-					backgroundColor: 'red'
+					bottom: '1px',
 				},
-				eventName = '';
+				eventName = '',
+				toggleEventName = '';
 
 			element.wrap('<div class="toggle-password-visible-wrapper"/>');
 			wrapper = element.parent();
 			wrapper.css(wrapperCSS);
 			toggle = $('<div class="toggle-password-visible-toggle"/>').css(toggleCSS);
-
+			this.updateInnerToggle(toggle, this.currentStateKey(), options.states);
 			toggle.appendTo(wrapper);
+			element.css({paddingRight: toggle.width()});
 
-			toggle.on(options.toggleEvent, $.proxy(function(event) {
-				this.update('toggle');
-			}, this));
+			if (options.touchSupport) {
+				toggle.css('pointerEvents', 'none');
+				element.on(options.toggleTouchEvent, $.proxy(function (event) {
+					var toggleX = toggle.offset().left,
+						eventX;
+					if (toggleX) {
+						eventX = event.pageX || event.originalEvent.pageX;
+						if (eventX >= toggleX) {
+							event.preventDefault();
+							this.update('toggle');
+						}
+					}
+				}, this));
+			} else {
+				toggle.on(options.toggleEvent, $.proxy(function(event) {
+					this.update('toggle');
+				}, this));
+			}
 
 			$.each(this.options.states, function(key, state) {
 				eventName+= state.eventName + ' ';
 			});
 			element.on(eventName, $.proxy(function() {
-				this.updateInnerToggle(toggle, this.currentStateKey(), options)
+				this.updateInnerToggle(toggle, this.currentStateKey(), options);
 			}, this));
 		},
 
@@ -117,10 +137,40 @@
 					element.removeClass(state.toggleClass);
 				}
 			});
+		},
+
+		// 入力制限
+		disableDoubleByteChar: function(element) {
+			element.bind('copy', function(event){
+				event.preventDefault();
+			});
+			element.bind('keyup blur', function(event) {
+				var key = event.charCode ? event.charCode : event.keyCode ? event.keyCode : 0
+				if (
+					key == 8  /* backspace */
+				 || key == 9  /* tab */
+				 || key == 13 /* enter */
+				 || key == 16 /* shift */
+				 // || key == 17 /* ctrl */
+				 || key == 18 /* alt */
+				 || key == 35 /* end */
+				 || key == 36 /* home */
+				 || key == 37 /* left */
+				 || key == 38 /* up */
+				 || key == 39 /* right */
+				 || key == 39 /* down */
+				 || key == 46 /* del */
+				 // || key == 91 /* command */
+				) {
+					return true;
+				}
+
+				$(this).val($(this).val().replace(/[^a-zA-Z0-9 !\"#$%&\'()*+,-.\/:;<=>?@\\\[\]\^_`{|}~]/g, ''));
+			});
 		}
 	};
 
-
+	// main
 	$.fn.togglePasswordVisible = function(options) {
 		// 要素を退避
 		var elements = this;
@@ -134,14 +184,8 @@
 		return this;
 	};
 
-	// Example 1
-	// $('#password').hideShowPassword({
-	// 	// Creates a wrapper and toggle element with minimal styles.
-	// 	innerToggle: true,
-	// 	// Makes the toggle functional in touch browsers without
-	// 	// the element losing focus.
-	// 	// touchSupport: Modernizr.touch
-	// });
+	$('#password').togglePasswordVisible({
+		touchSupport: Modernizr.touch
+	});
 
-	$('#password').togglePasswordVisible();
 })(jQuery);

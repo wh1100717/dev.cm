@@ -1,12 +1,14 @@
 ---
 title: Toggle Password visible
 js:
+  - 20/modernizr.custom.min
   - 20/jquery.hideShowPassword
-  - 20/togglePasswordVisible
+  - 20/jquery.togglePasswordVisible
+css: 20/togglePasswordVisible
 ---
 
 .container
 	.row
 		.col-sm-12
 			= password_field_tag 'password', id: 'password', class: 'form-control'
-			= password_field_tag 'password'
+			= password_field_tag 'password', id: 'password2', class: 'form-control'
