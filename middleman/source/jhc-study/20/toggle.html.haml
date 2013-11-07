@@ -2,13 +2,18 @@
 title: Toggle Password visible
 js:
   - 20/modernizr.custom.min
-  - 20/jquery.hideShowPassword
   - 20/jquery.togglePasswordVisible
+  - 20/application
 css: 20/togglePasswordVisible
 ---
 
 .container
 	.row
 		.col-sm-12
-			= password_field_tag 'password', id: 'password', class: 'form-control'
-			= password_field_tag 'password', id: 'password2', class: 'form-control'
+			%h3.page-header Demo form
+			- form_tag  './', method: 'post', role: 'form' do
+				.form-group
+					= text_field_tag 'username', class: 'form-control', placeholder: 'Username'
+				.form-group
+					= password_field_tag 'password', id: 'password', class: 'form-control', placeholder: 'Password'
+					%p.help-block アイコンクリックでパスワードの可視切り替え

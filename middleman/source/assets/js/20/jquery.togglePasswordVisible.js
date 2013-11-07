@@ -1,4 +1,4 @@
-(function($) {
+;(function($) {
 
 	// デフォルトオプション
 	var defaults = {
@@ -30,6 +30,7 @@
 		}
 	};
 
+	// コンストラクタ
 	var TogglePasswordVisible = function(element, options){
 		this.element = $(element);
 		this.init(options);
@@ -40,10 +41,10 @@
 		init: function(options) {
 			this.update(options, defaults, (this.element.attr('type') === 'password'));
 			this.initInnerToggle(this.element, this.options);
-
-			this.disableDoubleByteChar(this.element);
+			this.dennyDoubleByteChar(this.element);
 		},
 
+		// オプション値、インプット要素を更新
 		update: function(options, optionsBase, toggleFallback) {
 			optionsBase = optionsBase || this.options;
 			toggleFallback = toggleFallback || !this.options.show;
@@ -74,6 +75,7 @@
 			}, this));
 		},
 
+		// 現在の状態をキーで返す
 		currentStateKey: function() {
 			return this.options.show ? 'shown' : 'hidden';
 		},
@@ -82,26 +84,20 @@
 		initInnerToggle: function(element, options) {
 			var wrapper,
 				toggle,
-				wrapperCSS = {
-					position: 'relative'
-				},
-				toggleCSS = {
-					position: 'absolute',
-					top: '1px',
-					right: 0,
-					bottom: '1px',
-				},
 				eventName = '',
 				toggleEventName = '';
 
 			element.wrap('<div class="toggle-password-visible-wrapper"/>');
 			wrapper = element.parent();
-			wrapper.css(wrapperCSS);
-			toggle = $('<div class="toggle-password-visible-toggle"/>').css(toggleCSS);
+			toggle = $('<div class="toggle-password-visible-toggle"/>');
 			this.updateInnerToggle(toggle, this.currentStateKey(), options.states);
 			toggle.appendTo(wrapper);
 			element.css({paddingRight: toggle.width()});
 
+			// タッチデバイスにおいてはインプット要素全体に対してイベントハンドリングし、
+			// タッチした座標からトグルボタンが押されたかどうかを判断する
+			// トグルボタンが位置する座標上がタップされたらインプット要素更新処理を呼び出す
+			// PCにおいてはトグルボタンのクリックイベントをハンドリングする
 			if (options.touchSupport) {
 				toggle.css('pointerEvents', 'none');
 				element.on(options.toggleTouchEvent, $.proxy(function (event) {
@@ -121,6 +117,7 @@
 				}, this));
 			}
 
+			// イベント・ドリブン定義
 			$.each(this.options.states, function(key, state) {
 				eventName+= state.eventName + ' ';
 			});
@@ -129,6 +126,7 @@
 			}, this));
 		},
 
+		// トグルボタンを更新
 		updateInnerToggle: function(element, currentKey, states) {
 			$.each(this.options.states, function(key, state) {
 				if (currentKey == key) {
@@ -139,8 +137,8 @@
 			});
 		},
 
-		// 入力制限
-		disableDoubleByteChar: function(element) {
+		// 入力制限 - 2バイト文字の入力を制限する
+		dennyDoubleByteChar: function(element) {
 			element.bind('copy', function(event){
 				event.preventDefault();
 			});
@@ -183,9 +181,5 @@
 		// method chain用に要素を返す
 		return this;
 	};
-
-	$('#password').togglePasswordVisible({
-		touchSupport: Modernizr.touch
-	});
 
 })(jQuery);
