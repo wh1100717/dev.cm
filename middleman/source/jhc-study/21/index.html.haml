@@ -1,0 +1,33 @@
+---
+title: JST Clock
+js: 21/application
+css: 21/clock
+---
+
+.container
+	.row
+		.col-sm-12
+			%dl.dl-horizontal
+				%dt 日本標準時(JST)
+				%dd#jst
+
+	.row
+		.col-sm-12
+			.second-level-header-wrapper
+				.second-level-header
+					#xday-counter.has-countdown
+						%h6 Countdown to Developers.IO Conference
+						%table
+							%tbody
+								%tr.counter
+									%td#days 00
+									%td#hours 15
+									%td#minutes 40
+									%td#seconds 30
+								%tr.labels
+									%td DAYS
+									%td HOURS
+									%td MINUTES
+									%td SECONDS
+					.register-now-container
+						= link_to 'Developers.IO 勉強会 お申込みフォームへ', '#', class: 'button large'
